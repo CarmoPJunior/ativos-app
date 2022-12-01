@@ -1,0 +1,51 @@
+<div class="card">
+
+  <div class="cardHeader">
+    <h2>Dividendos Recebidos</h2>
+
+    <div class="cardHeader-rightItem">
+
+      <label for="pet-select">Escolha um Ano:</label>
+
+      <select  [(ngModel)]="yearSelected" (change)="onSelect()">
+          <option value="0">Selecione um item</option>
+          <option value="2022">2022</option>
+          <option value="2021">2021</option>
+          <option value="2020">2020</option>
+      </select>
+      
+    </div>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <td>Icone</td>
+        <td>Mês/Ano</td>
+        <td>Valor</td>
+        <td>Status</td>
+      </tr>
+    </thead>
+
+    <tbody *ngIf="dividendos.length > 0; else noContent">
+
+        <tr *ngFor="let dividendo of dividendos" class="item">
+          <td class="icone">
+            <ion-icon name="logo-firefox"></ion-icon>
+          </td>
+          <td>{{ dividendo.mes + '-' + dividendo.ano }}</td>
+          <td>{{ dividendo.valor | currency:"BRL" }}</td>
+          <td><span class="status delivered">Positivo</span></td>
+        </tr>
+
+        <h2 class="cart-total">Total: </h2>
+    </tbody>
+
+  </table>
+</div>
+
+<ng-template #noContent>
+  <tr>
+    <td colspan="11">Nenhum conteúdo foi encontrado!<td>
+  </tr>
+</ng-template>

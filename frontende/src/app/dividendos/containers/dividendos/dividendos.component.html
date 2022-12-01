@@ -1,0 +1,32 @@
+<div class="details">
+
+  <app-dividendos-list
+    *ngIf="dividendos$ | async as dividendos; else loading"
+    (eventSelectedYear)="receiverYearSelected($event)"
+    [dividendos]="dividendos"
+    [yearSelected]="yearSelected">
+  </app-dividendos-list>
+
+  <div>
+
+    <app-dividendos-chart-bar
+      *ngIf="dividendos$ | async as dividendos; else loading"
+      [yearSelected]="yearSelected"
+      [dividendos]="dividendos">
+    </app-dividendos-chart-bar >
+
+    <app-dividendos-total-pie-chart
+      *ngIf="dividendos$ | async as dividendos; else loading"
+      [dividendos]="dividendos">
+    </app-dividendos-total-pie-chart>
+
+  </div>>
+
+  <ng-template #loading>
+    <div class="loading-spinner">
+      <mat-spinner></mat-spinner>
+    </div>
+  </ng-template>
+</div>
+
+

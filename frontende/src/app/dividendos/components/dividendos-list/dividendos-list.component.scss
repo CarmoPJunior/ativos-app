@@ -1,0 +1,96 @@
+/* card */
+.card{
+  position: relative;
+  display: grid;
+  min-height: 500px;
+  max-height: 500px;
+  background: var(--white);
+  padding: 1rem;
+  margin: 0.8rem 0.5rem;
+  transition: box-shadow .25s;
+  box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 12%), 0 1px 5px 0 rgb(0 0 0 / 20%);
+  border-radius: 0.5rem;
+  overflow-y: scroll;
+}
+.cardHeader{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.cardHeader h2{
+  font-weight: 600;
+  color: var(--blue);
+  margin-top: 0px;
+  font-size: 1.5em;
+}
+.btn{
+  position: relative;
+  padding: 5px 10px;
+  background: var(--blue);
+  text-decoration: none;
+  color: var(--white);
+  border-radius: 6px;
+}
+
+.cardHeader-rightItem{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  font-size: 0.8rem;
+}
+
+.cardHeader-rightItem select{
+    width: 100%;
+    border-radius: 1rem;
+    padding: 0.21rem;
+    outline: none;
+    border: 1px solid var(--blue);
+    font-weight: 700;
+    color: var(--black2);
+}
+.cardHeader-rightItem label{
+    margin-left: 0.3rem;
+    padding: 0.2rem;
+    font-weight: 700;
+    color: var(--blue);
+}
+
+.card table{
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  max-height: 350px;
+  overflow: hidden;
+}
+.card table thead td{
+  font-weight: 600;
+}
+.card table tr{
+  color: var(--black1);
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+.card table tr:last-child{
+  border-bottom: none;
+}
+
+.card table tbody {
+  min-height: 300px;
+  max-height: 300px;
+}
+
+.card table tbody tr:hover{
+  background: var(--blue);
+  color: var(--white);
+}
+.card table tr td{
+  padding: 10px;
+}
+.card table tr td:last-child{
+  text-align: end;
+}
+.card table tr td:nth-child(2){
+  text-align: end;
+}
+.card table tr td:nth-child(3){
+  text-align: center;
+}

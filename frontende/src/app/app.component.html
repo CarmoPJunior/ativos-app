@@ -1,0 +1,47 @@
+
+<div class="container">
+
+  <div class="navigation">
+    <ul>
+        <li>
+            <a routerLink="/">
+                <span class="icon">
+                  <ion-icon name="logo-firefox"></ion-icon>
+                </span>
+                <span class="title">Dashboard</span>
+            </a>
+        </li>
+        <li>
+            <a routerLink="/ativos/">
+                <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
+                <span class="title">Dashboard</span>
+            </a>
+        </li>
+        <li>
+            <a routerLink="/dividendos">
+                <span class="icon"><ion-icon name="chatbubble-outline"></ion-icon></span>
+                <span class="title">Dividendos</span>
+            </a>
+        </li>
+
+    </ul>
+  </div>
+
+  <!-- main -->
+  <div id="main" class="main">
+    <!-- Toolbar -->
+    <app-header></app-header>
+
+    <!-- details -->
+    <router-outlet></router-outlet>
+
+     <!-- Footer -->
+    <app-footer></app-footer>
+
+  </div>
+
+</div>
+
+
+
+

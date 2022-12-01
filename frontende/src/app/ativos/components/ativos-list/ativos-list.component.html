@@ -1,0 +1,99 @@
+
+
+
+<div class="details">
+
+    <div class="recentOrders">
+    
+      <div class="card-header">
+        <h2>Ativos - BitCoin</h2>
+        <button mat-mini-fab color="accent" aria-label="Adicionar um curso">
+          <mat-icon (click)="onAdd()">add</mat-icon>
+        </button>
+      </div>
+    
+      <div class="card-body">
+    
+        <table>
+    
+          <thead>
+            <tr>
+              <td>Sigla</td>
+              <td>Valor Compra</td>
+              <td>Qt.</td>
+              <td>Val. Total</td>
+              <td>% Venda</td>
+              <td>Val. Venda</td>
+              <td>Lucro Unitário</td>
+              <td>Lucro Total</td>
+    
+              <td>Val. Atual</td>
+              <td>Qt. à comprar</td>
+              <td>Val. valorAInvestir</td>
+              <td>Val. Médio Sim.</td>
+              <td>Val. Venda Simulado</td>
+              <td>Lucro Unitário Simulado</td>
+              <td>Lucro Total Simulado</td>
+    
+              <td>Tipo Ativo</td>
+              <td>Ação</td>
+    
+            </tr>
+          </thead>
+    
+          <tbody *ngIf="ativos.length > 0; else semProdutos">
+    
+              <tr *ngFor="let ativo of ativos">
+                <td>{{ ativo.sigla }}</td>
+                <td>{{ ativo.valorCompra | currency:"BRL" }}</td>
+                <td>{{ativo.qtCompra}}</td>
+                <td>{{ativo.valorTotal| currency:"BRL"}}</td>
+                <td>{{ativo.porcentagemVenda}}</td>
+                <td>{{ativo.valorVenda | currency:"BRL"}}</td>
+                <td>{{ativo.lucroUnitario | currency:"BRL"}}</td>
+                <td>{{ativo.lucroTotal | currency:"BRL"}}</td>
+    
+    
+                <td>{{ativo.valorAtualCotacao | currency:"BRL"}}</td>
+                <td>{{ativo.qtPrevistaCompra}}</td>
+                <td>{{ativo.valorAInvestir | currency:"BRL"}}</td>
+                <td>{{ativo.valorMedioSimulado | currency:"BRL"}}</td>
+                <td>{{ativo.valorVendaSimulado | currency:"BRL"}}</td>
+                <td>{{ativo.lucroUnitarioSimulado | currency:"BRL"}}</td>
+                <td>{{ativo.lucroTotalSimulado.toFixed(2) | currency:"BRL"}}</td>
+    
+    
+    
+    
+                <td>{{ativo.tipoAtivo}}</td>
+    
+                <td>
+                  <button mat-icon-button color="primary" aria-label="Editar Curso">
+                    <mat-icon (click)="onEdit(ativo)">edit</mat-icon>
+                  </button>
+    
+                  <button mat-icon-button color="warn" aria-label="Remover Curso">
+                    <mat-icon>delete</mat-icon>
+                  </button>
+                </td>
+    
+              </tr>
+              <h2 class="cart-total">Total: </h2>
+          </tbody>
+    
+        </table>
+    
+      </div>
+    
+    </div>
+    <!-- <div *ngIf="ativos.length > 0; else semProdutos"> -->
+    </div>
+    
+    <ng-template #semProdutos>
+      <tr>
+        <td colspan="11">Nenhum produto adicionado ao carrinho<td>
+      </tr>
+    </ng-template>
+    
+    
+    
