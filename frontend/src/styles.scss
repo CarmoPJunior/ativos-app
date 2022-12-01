@@ -29,7 +29,7 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
-    font-family: "Open Sans", Helvetica, Arial, "sans-serif";
+  font-family: "Open Sans", Helvetica, Arial, "sans-serif";
 }
 ol, ul {
 	list-style: none;
@@ -77,22 +77,12 @@ html, body{
 
 body{
   min-height: 100vh;
-  overflow-x: hidden;
+  overflow: scroll;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   letter-spacing: 0.7px;
   background: var(--white2);
 }
-
-
-// body{
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   min-height: 100vh;
-//   width: 100vw;
-//   background-color: #fff;
-// }
 
 // /* You can add global styles to this file, and also import other style files */
 // @import '@angular/material/theming';

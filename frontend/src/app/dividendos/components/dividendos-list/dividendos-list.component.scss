@@ -5,17 +5,18 @@
   min-height: 500px;
   max-height: 500px;
   background: var(--white);
-  padding: 1rem;
+  padding: 0.8rem;
   margin: 0.8rem 0.5rem;
   transition: box-shadow .25s;
   box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 12%), 0 1px 5px 0 rgb(0 0 0 / 20%);
   border-radius: 0.5rem;
-  overflow-y: scroll;
 }
 .cardHeader{
   display: flex;
   justify-content: space-between;
   align-items: center;
+  transition: box-shadow .25s;
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 2px 0px;
 }
 .cardHeader h2{
   font-weight: 600;
@@ -37,6 +38,7 @@
   flex-direction: column;
   justify-content: space-around;
   font-size: 0.8rem;
+  padding: 0.1rem 0.1rem 0.5rem;
 }
 
 .cardHeader-rightItem select{
@@ -54,13 +56,25 @@
     font-weight: 700;
     color: var(--blue);
 }
+.card-body{
+  overflow-y: scroll;
+  padding: 0.1rem 0;
+  display: block;
+}
+.card-footer{
+  padding: 0.5rem 0 0.1rem;
+  box-shadow: rgba(17, 17, 26, 0.5) 0 -5px 5px -5px;
+  font-weight: 600;
+  color: var(--blue);
+  font-size: 0.7rem;
+  display: block;
+}
 
 .card table{
   width: 100%;
   border-collapse: collapse;
-  margin-top: 10px;
   max-height: 350px;
-  overflow: hidden;
+  // overflow: hidden;
 }
 .card table thead td{
   font-weight: 600;

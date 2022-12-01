@@ -13,12 +13,24 @@ export class DividendosListComponent implements OnInit {
   @Input() dividendos: IDividendos[] = [];
   @Output() eventSelectedYear = new EventEmitter();
 
+  totalValueDividendos: number = 0;
+
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.sumValueTotalDividendos();
+  }
 
   onSelect(){
     this.eventSelectedYear.emit(this.yearSelected);
+  }
+
+  sumValueTotalDividendos(){
+
+    this.totalValueDividendos = this.dividendos.reduce((total, currentValue) =>{
+      return total + currentValue.valor;
+    }, 0);
+
   }
 
 }
