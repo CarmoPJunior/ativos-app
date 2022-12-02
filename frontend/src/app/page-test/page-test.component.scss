@@ -1,24 +1,36 @@
+/* details */
+.details{
+  position: relative;
+  width: 100%;
+  padding: 1.5rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 1.5rem;
+  top: 60px;
+  overflow-y: scroll;
+}
+
 
 svg.material-icons {
     height: 24px;
     width: auto;
   }
-  
+
   svg.material-icons:not(:last-child) {
     margin-right: 8px;
   }
-  
+
   .card svg.material-icons path {
     fill: #888;
   }
-  
+
   .card-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     margin-top: 16px;
   }
-  
+
   .card {
     all: unset;
     border-radius: 4px;
@@ -35,29 +47,29 @@ svg.material-icons {
     transition: all 0.2s ease-in-out;
     line-height: 24px;
   }
-  
+
   .card-container .card:not(:last-child) {
     margin-right: 0;
   }
-  
+
   .card.card-small {
     height: 16px;
     width: 168px;
   }
-  
+
   .card-container .card:not(.highlight-card) {
     cursor: pointer;
   }
-  
+
   .card-container .card:not(.highlight-card):hover {
     transform: translateY(-3px);
     box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
   }
-  
+
   .card-container .card:not(.highlight-card):hover .material-icons path {
     fill: rgb(105, 103, 103);
   }
-  
+
   .card.highlight-card {
     background-color: #1976d2;
     color: white;
@@ -67,18 +79,18 @@ svg.material-icons {
     min-width: 30%;
     position: relative;
   }
-  
+
   .card.card.highlight-card span {
     margin-left: 60px;
   }
-  
+
   svg#rocket {
     width: 80px;
     position: absolute;
     left: -10px;
     top: -24px;
   }
-  
+
   svg#rocket-smoke {
     height: calc(100vh - 95px);
     position: absolute;
@@ -86,18 +98,18 @@ svg.material-icons {
     right: 180px;
     z-index: -10;
   }
-  
+
   a,
   a:visited,
   a:hover {
     color: #1976d2;
     text-decoration: none;
   }
-  
+
   a:hover {
     color: #125699;
   }
-  
+
   .terminal {
     position: relative;
     width: 80%;
@@ -108,7 +120,7 @@ svg.material-icons {
     overflow: hidden;
     background-color: rgb(15, 15, 16);
   }
-  
+
   .terminal::before {
     content: "\2022 \2022 \2022";
     position: absolute;
@@ -123,14 +135,14 @@ svg.material-icons {
     padding: 14px 0;
     text-indent: 4px;
   }
-  
+
   .terminal pre {
     font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
     color: white;
     padding: 0 1rem 1rem;
     margin: 0;
   }
-  
+
   .circle-link {
     height: 40px;
     width: 40px;
@@ -145,41 +157,40 @@ svg.material-icons {
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
     transition: 1s ease-out;
   }
-  
+
   .circle-link:hover {
     transform: translateY(-0.25rem);
     box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
   }
-  
-  
-  
-  
+
+
+
+
   /* Responsive Styles */
   @media screen and (max-width: 767px) {
     .card-container > *:not(.circle-link) ,
     .terminal {
       width: 100%;
     }
-  
+
     .card:not(.highlight-card) {
       height: 16px;
       margin: 8px 0;
     }
-  
+
     .card.highlight-card span {
       margin-left: 72px;
     }
-  
+
     svg#rocket-smoke {
       right: 120px;
       transform: rotate(-5deg);
     }
   }
-  
+
   @media screen and (max-width: 575px) {
     svg#rocket-smoke {
       display: none;
       visibility: hidden;
     }
   }
-  

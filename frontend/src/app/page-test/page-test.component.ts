@@ -9,7 +9,7 @@ export class PageTestComponent implements OnInit {
 
   constructor() { }
 
-  title = 'investments-front';
+  title = 'Ativos';
 
   ngOnInit(): void {
   }

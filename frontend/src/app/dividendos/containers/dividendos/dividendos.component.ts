@@ -1,5 +1,4 @@
 import { Component, OnInit} from '@angular/core';
-
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 import { MatDialog as MatDialog } from '@angular/material/dialog';
@@ -20,7 +19,7 @@ export class DividendosComponent implements OnInit {
   yearSelected: number;
 
   constructor( private dividendosService: DividendosService,
-    // public dialog: MatDialog,
+    public dialog: MatDialog,
   ) {
     this.getDividendos();
     this.yearSelected = 0;
@@ -44,9 +43,9 @@ export class DividendosComponent implements OnInit {
   }
 
   onError(errorMsg: string) {
-    // this.dialog.open(ErrorDialogComponent, {
-    //   data: errorMsg
-    // });
+    this.dialog.open(ErrorDialogComponent, {
+      data: errorMsg
+    });
     console.log(errorMsg);
   }
 

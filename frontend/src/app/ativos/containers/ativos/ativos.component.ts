@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
-import { MatLegacyDialog as MatDialog } from '@angular/material/legacy-dialog';
+import { MatDialog } from '@angular/material/dialog';
 
 import { IAtivo } from '../../models/ativo.model';
 import { AtivosService } from '../../services/ativos.service';
@@ -17,7 +17,7 @@ export class AtivosComponent implements OnInit {
 
   ativos$: Observable<IAtivo[]>;
 
-  constructor(    
+  constructor(
     private ativosService: AtivosService,
     public dialog: MatDialog,
     public formAtivosDialog : MatDialog,
@@ -40,10 +40,10 @@ export class AtivosComponent implements OnInit {
 
   ngOnInit(): void { }
 
-  onAdd() {   
+  onAdd() {
   }
 
-  onEdit(ativo: IAtivo) {    
+  onEdit(ativo: IAtivo) {
   }
 
 
