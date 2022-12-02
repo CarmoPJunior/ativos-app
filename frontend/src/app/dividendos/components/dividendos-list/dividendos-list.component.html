@@ -35,7 +35,7 @@
             <td class="icone">
               <ion-icon name="cash-outline"></ion-icon>
             </td>
-            <td>{{ dividendo.mes + '-' + dividendo.ano }}</td>
+            <td>{{ dividendo.mes | mesAbreviado}}/{{dividendo.ano}}</td>
             <td>{{ dividendo.valor | currency }}</td>
             <td><span class="status delivered">Positivo</span></td>
           </tr>

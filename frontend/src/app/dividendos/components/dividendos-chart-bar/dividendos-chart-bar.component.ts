@@ -7,6 +7,8 @@ import { BaseChartDirective } from 'ng2-charts';
 
 import { IDividendos } from '../../models/dividendos.model';
 
+
+
 @Component({
   selector: 'app-dividendos-chart-bar',
   templateUrl: './dividendos-chart-bar.component.html',
