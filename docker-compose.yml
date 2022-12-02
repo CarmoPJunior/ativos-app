@@ -1,14 +1,16 @@
 version: '3'
 services:
   docker-app:
+    container_name: "ativos-api"
     build:
       context: ./
-      dockerfile: ./Dockerfile
-    image: flask_app
+      dockerfile: ./docker/Dockerfile
+    image: ativos-api
+    # env_file: .env
     # restart: on-failure
     ports:
       - "8081:8081"
+      - "8080:8080"
     environment:
       - PORT=8081
-    
  

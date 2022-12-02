@@ -11,11 +11,12 @@
 1. [Objetivo](#objetivo)
 2. [Configuração Ambiente](#configuracao-ambiente)
 3. [Rodar o Projeto](#rodar-projeto)
+4. [Rodar o Projeto com o Docker](#rodar-projeto-docker)
 4. [Urls API](#urls-api)
 
 ---
 
-## 🛠 Configuração Ambiente <a name="configuracao-ambiente"></a>
+## 🛠 Configuração do Ambiente <a name="configuracao-ambiente"></a>
 
 ### Criar ambiente virtual
 
@@ -55,6 +56,9 @@ ou
 
 ## ⚙️ Rodar o Projeto <a name="rodar-projeto"></a>
 
+### Mover para pasta do projeto
+
+> cd backend
 
 ### run console
 
@@ -62,13 +66,22 @@ ou
 
 ### run api
 
-> uvicorn src.api:api --reload
-ou
 > python run_api.py
+
+ou
+
+> uvicorn src.api:api --reload
+
 
 ### run streamlit
 
 > streamlit run src/streamlit.py
+
+---
+
+## ⚙️ Rodar o Projeto com o Docker <a name="rodar-projeto-docker"></a>
+
+> docker-compose up -d
 
 ---
 
@@ -86,6 +99,7 @@ ou
 
 
 
+> git commit -am 'Print a hello world message
 
 
 
