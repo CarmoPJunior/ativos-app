@@ -1,8 +1,8 @@
 import pandas as pd
 from typing import List
 
-from backend.config.sheet_enum import Sheet
-from backend.config.sheets_configs import SheetPath
+from src.config.sheet_enum import Sheet
+from src.config.sheets_configs import SheetPath
 
 import warnings
 warnings.simplefilter("ignore")
@@ -10,10 +10,10 @@ warnings.simplefilter("ignore")
 def obtemDadosVendas():
 
     df_vendas = pd.read_excel(
-        SheetPath.PATH_SHEET_ATIVOS.value, 
+        SheetPath.PATH_SHEET_ATIVOS.value,
         sheet_name=Sheet.VENDAS.value
     )
-    
+
     df_vendas = trataDadosVendas(df_vendas)
 
     return df_vendas
@@ -42,7 +42,7 @@ def trataDadosVendas(df_vendas):
     df_vendas = df_vendas[df_vendas['sigla'].notnull()]
 
     df_vendas = df_vendas.round(2)
-    
+
     return df_vendas
 
 
@@ -52,20 +52,20 @@ def agrupaLucroVendasPorMes():
 
     show_columns = ['dataVenda', 'lucro']
     lucro_vendas_por_mes  = df_vendas.groupby(
-        [df_vendas['dataVenda'].dt.year.rename('ano'), 
+        [df_vendas['dataVenda'].dt.year.rename('ano'),
         df_vendas['dataVenda'].dt.month.rename('mes')]
-        )[show_columns].sum()  
+        )[show_columns].sum()
     lucro_vendas_por_mes = lucro_vendas_por_mes.reset_index()
-        
+
     return lucro_vendas_por_mes
 
-def obtemLucroVendasPorAno(anos:List[int]):    
-    
-    lucro_vendas = agrupaLucroVendasPorMes()    
+def obtemLucroVendasPorAno(anos:List[int]):
+
+    lucro_vendas = agrupaLucroVendasPorMes()
 
     if not anos:
         return lucro_vendas
-        
+
     lucro_vendas = lucro_vendas[
         lucro_vendas.ano.isin(anos)
     ]

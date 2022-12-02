@@ -1,8 +1,8 @@
 import pandas as pd
 from typing import List
 
-from backend.service.vendas_service import agrupaLucroVendasPorMes
-from backend.service.dividendos_service import  agrupaDividendosPorMes
+from src.service.vendas_service import agrupaLucroVendasPorMes
+from src.service.dividendos_service import  agrupaDividendosPorMes
 
 def trataDados(lucro_venda_mais_dividendos):
 
@@ -38,17 +38,17 @@ def agrupaDividendoMaisLucroVendas():
 
 def obtemLucrosAtivosPorAno(anos:List[int]):
 
-    lucrosAtivos = agrupaDividendoMaisLucroVendas()    
+    lucrosAtivos = agrupaDividendoMaisLucroVendas()
 
     if not anos:
         return lucrosAtivos
-        
+
     lucrosAtivos = lucrosAtivos[
         lucrosAtivos.ano.isin(anos)
     ]
     return lucrosAtivos
 
 if __name__ == "__main__":
-    print("chamado direto")   
+    print("chamado direto")
 else:
     print("chamado por import")

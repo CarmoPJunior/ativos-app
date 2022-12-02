@@ -55,19 +55,20 @@ ou
 
 ## ⚙️ Rodar o Projeto <a name="rodar-projeto"></a>
 
+
 ### run console
 
-> python -m backend
+> python -m src
 
 ### run api
 
-> uvicorn backend.api:api --reload
+> uvicorn src.api:api --reload
 ou
-> python backend/run_api.py
+> python run_api.py
 
 ### run streamlit
 
-> streamlit run backend/streamlit.py
+> streamlit run src/streamlit.py
 
 ---
 

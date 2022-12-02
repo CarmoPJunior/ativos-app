@@ -1,9 +1,9 @@
 from fastapi import FastAPI, Query
 from fastapi.middleware.cors import CORSMiddleware
 
-from backend.routes.dividendos_routes import dividendos_routes
-from backend.routes.ativos_routes import ativos_routes
-from backend.routes.vendas_routes import vendas_routes
+from src.routes.dividendos_routes import dividendos_routes
+from src.routes.ativos_routes import ativos_routes
+from src.routes.vendas_routes import vendas_routes
 
 origins = [
     "http://localhost",
@@ -24,6 +24,7 @@ api.add_middleware(
 def root():
     """Api Ativos"""
     return {"Description": "Api Ativos"}
+
 
 api.include_router(dividendos_routes)
 api.include_router(vendas_routes)

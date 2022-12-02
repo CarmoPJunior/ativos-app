@@ -1,7 +1,10 @@
+from dotenv import load_dotenv
 import pandas as pd
 import streamlit as st
 import warnings
 # import matplotlib.pyplot as plt
+# warnings.simplefilter("ignore")
+load_dotenv()
 
 from st_aggrid import AgGrid, GridOptionsBuilder
 from st_aggrid.shared import GridUpdateMode
@@ -31,7 +34,7 @@ def agrupa_dividendo_mais_lucro_vendas(ano:list[int]):
 
 
 def main() -> None:
-    
+
     st.header("Fidelity Account Overview :moneybag: :dollar: :bar_chart:")
     # st.title('Uber pickups llin NYC')
 
@@ -54,7 +57,7 @@ def main() -> None:
         "Select Accounts to View", options=accounts, default=accounts
     )
 # ------- SIDEBAR
-    
+
     df = agrupa_dividendo_mais_lucro_vendas(account_selections)
 
     st.subheader("Vendas Por Mês")
@@ -88,13 +91,13 @@ def main() -> None:
         ),
         cellStyle=cellsytle_jscode,
     )
-    
+
     gb.configure_pagination(paginationAutoPageSize=False,paginationPageSize=12)
     gb.configure_columns(("account_name", "symbol"), pinned=True)
     gridOptions = gb.build()
 
-    AgGrid(df, 
-            gridOptions=gridOptions,             
+    AgGrid(df,
+            gridOptions=gridOptions,
             fit_columns_on_grid_load=True,
             allow_unsafe_jscode=True)
 

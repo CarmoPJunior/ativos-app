@@ -1,10 +1,14 @@
 import uvicorn
+import os
+from dotenv import load_dotenv
 
 if __name__=="__main__":
+
+    load_dotenv()
+    print(f"---------->:{os.environ['API_PORT']}")
     uvicorn.run(
-        "backend.api:api",
-        host='0.0.0.0',
-        port=8000,
-        reload=True
-        # debug=True
+        "src.api:api",
+        host=os.environ['API_HOST'] ,
+        port=int(os.environ['API_PORT']),
+        reload=os.environ['UVICORN_RELOAD']
     )
