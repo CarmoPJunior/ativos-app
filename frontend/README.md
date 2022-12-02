@@ -64,6 +64,7 @@ ou
 > ng g m shared --routing
 > ng g m shared/app-material
 > ng g c shared/components/error-dialog --module shared
+> ng g pipe shared/pipes/mes-abreviado --module shared
 
 > ng g s ativos/services/ativos
 
@@ -72,7 +73,9 @@ ou
 
 ## REFERÊNCIAS
 
+> Angular Docs: https://angular.io/docs
 > ng2-charts: https://valor-software.com/ng2-charts
-> typescriptlang: https://www.typescriptlang.org/pt/
+> Typescriptlang: https://www.typescriptlang.org/pt/
+
 
 

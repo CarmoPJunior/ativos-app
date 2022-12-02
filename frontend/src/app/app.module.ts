@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, DEFAULT_CURRENCY_CODE, LOCALE_ID, } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -9,6 +9,11 @@ import { HeaderComponent } from './components/header/header.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { IonicModule } from '@ionic/angular';
 import { NgChartsModule } from 'ng2-charts';
+import ptBr from '@angular/common/locales/pt';
+import { registerLocaleData } from '@angular/common';
+
+
+registerLocaleData(ptBr);
 
 @NgModule({
   declarations: [
@@ -24,7 +29,10 @@ import { NgChartsModule } from 'ng2-charts';
     IonicModule.forRoot(),
     NgChartsModule
   ],
-  providers: [],
+  providers: [
+    { provide: LOCALE_ID, useValue: 'pt' },
+    { provide: DEFAULT_CURRENCY_CODE, useValue: 'BRL' },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

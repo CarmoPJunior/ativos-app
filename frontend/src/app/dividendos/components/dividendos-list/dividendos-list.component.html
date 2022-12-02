@@ -29,18 +29,18 @@
         </tr>
       </thead>
 
-      <tbody *ngIf="dividendos.length > 0; else noContent">
+      <tbody *ngIf="dividendos.length > 0; else noContent" >
 
-          <tr *ngFor="let dividendo of dividendos" class="item">
+          <tr *ngFor="let dividendo of dividendos" >
             <td class="icone">
-              <ion-icon name="logo-firefox"></ion-icon>
+              <ion-icon name="cash-outline"></ion-icon>
             </td>
             <td>{{ dividendo.mes + '-' + dividendo.ano }}</td>
-            <td>{{ dividendo.valor | currency:"BRL" }}</td>
+            <td>{{ dividendo.valor | currency }}</td>
             <td><span class="status delivered">Positivo</span></td>
           </tr>
-      </tbody>
 
+      </tbody>
     </table>
 
   </div>
