@@ -6,13 +6,13 @@
 
 ---
 
-## Table of Contents
+## Sumário
 
 1. [Objetivo](#objetivo)
 2. [Configuração Ambiente](#configuracao-ambiente)
 3. [Rodar o Projeto](#rodar-projeto)
 4. [Rodar o Projeto com o Docker](#rodar-projeto-docker)
-4. [Urls API](#urls-api)
+4. [Urls](#urls)
 
 ---
 
@@ -20,7 +20,7 @@
 
 ### Criar ambiente virtual
 
-> python -m venv venv 
+> python -m venv venv
 
 ### Ativar ambiente virtual
 
@@ -29,6 +29,7 @@ ou
 > .\venv\Scripts\activate  
 
 ### Libs instaladas
+>
 > - pip install beautifulsoup4
 > - pip install python-dotenv
 > - pip install pandas
@@ -38,7 +39,6 @@ ou
 > - pip install uvicorn
 > - pip install streamlit-aggrid
 > - pip install streamlit
-
 
 ### Instalar as libs do projeto
 
@@ -72,7 +72,6 @@ ou
 
 > uvicorn src.api:api --reload
 
-
 ### run streamlit
 
 > streamlit run src/streamlit.py
@@ -81,26 +80,32 @@ ou
 
 ## ⚙️ Rodar o Projeto com o Docker <a name="rodar-projeto-docker"></a>
 
+<!-- > cd docker -->
+
 > docker-compose up -d
 
 ---
 
-## ⚡ Urls API <a name="urls-api"></a>
+## ⚡ Urls <a name="urls"></a>
 
-### Root
-> http://127.0.0.1:8000
+### Api Root
 
-### Docs
-> http://127.0.0.1:8000/docs
+> <http://127.0.0.1:8080>
 
-### Dividendos por ano
-> http://127.0.0.1:8000/dividendos/ano/
+### Api Docs
+
+> <http://127.0.0.1:8080/docs>
+
+### Stremlit
+
+> <http://127.0.0.1:8181/docs>
+
+### API Recursos
+
+#### Dividendos por ano
+
+> <http://127.0.0.1:8000/dividendos/ano/>
 
 
 
-
-> git commit -am 'Print a hello world message
-
-
-
-
+<!-- > git commit -am 'Print a hello world message -->

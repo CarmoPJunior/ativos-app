@@ -1,9 +1,0 @@
-Dockerfile
-.dockerignore
-logs/
-.git
-*.md
-.cache
-.gitignore
-.editorconfig
-venv/
