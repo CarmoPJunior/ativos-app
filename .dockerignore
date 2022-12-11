@@ -1,0 +1,30 @@
+# # Ignora tudo
+# *
+# __pycache__
+# Permiti arquivos e diretórios
+# !/backend/requirements.txt
+# !/backend/data/**
+# !/backend/src/**
+# !/backend/install.sh
+# !/backend/run_api.py
+# !/docker/backend/entrypoint.sh
+
+# Arquivos gerais
+**/*Dockerfile
+**/*.dockerignore
+**/.git
+**/*.gitignore
+**/*.editorconfig
+**/*.md
+**/logs/
+# .env
+
+# Arquivos do Python
+**/venv/
+**/*.cache
+**/__pycache__
+
+# Arquivos do Angular
+**/node_modules/
+**/npm-debug.log
+**/*.angular
