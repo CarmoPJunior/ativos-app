@@ -11,7 +11,7 @@ def trataDados(lucro_venda_mais_dividendos):
             'lucro': 'lucroVenda',
             'valor': 'valorDividendo'
         },
-        inplace = True
+        inplace=True
     )
 
     lucro_venda_mais_dividendos = lucro_venda_mais_dividendos.round(2)
@@ -25,10 +25,11 @@ def agrupaDividendoMaisLucroVendas():
     df_dividendos_por_mes = agrupaDividendosPorMes()
 
     lucro_venda_mais_dividendos = pd.merge(
-        lucro_vendas_por_mes, df_dividendos_por_mes, on = ["ano", "mes" ],
+        lucro_vendas_por_mes, df_dividendos_por_mes, on=["ano", "mes"],
         how="right"
     ).fillna(0)
-    # pd.merge(df1, df2, on=['id', 'name']).set_index(['id', 'name']).sum(axis=1)
+
+# pd.merge(df1, df2, on=['id', 'name']).set_index(['id', 'name']).sum(axis=1)
 
     lucro_venda_mais_dividendos = trataDados(lucro_venda_mais_dividendos)
 
@@ -36,7 +37,8 @@ def agrupaDividendoMaisLucroVendas():
         'totalLucroVendaDivendendo = lucroVenda + valorDividendo'
     )
 
-def obtemLucrosAtivosPorAno(anos:List[int]):
+
+def obtemLucrosAtivosPorAno(anos: List[int]):
 
     lucrosAtivos = agrupaDividendoMaisLucroVendas()
 
@@ -47,6 +49,7 @@ def obtemLucrosAtivosPorAno(anos:List[int]):
         lucrosAtivos.ano.isin(anos)
     ]
     return lucrosAtivos
+
 
 if __name__ == "__main__":
     print("chamado direto")

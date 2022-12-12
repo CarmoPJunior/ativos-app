@@ -98,13 +98,13 @@ ou
 
 ### Stremlit
 
-> <http://127.0.0.1:8181/docs>
+> <http://127.0.0.1:8080/docs>
 
 ### API Recursos
 
 #### Dividendos por ano
 
-> <http://127.0.0.1:8000/dividendos/ano/>
+> <http://127.0.0.1:8080/dividendos/ano/>
 
 
 <!-- Comandos Úteis -->

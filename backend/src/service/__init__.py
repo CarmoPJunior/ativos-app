@@ -1,2 +1,3 @@
 from .dividendos_service import agrupaDividendosPorMes, obtemDividendosPorAno
 from .vendas_service import agrupaLucroVendasPorMes, obtemLucroVendasPorAno
+from .lucro_ativos_service import agrupaDividendoMaisLucroVendas, obtemLucrosAtivosPorAno

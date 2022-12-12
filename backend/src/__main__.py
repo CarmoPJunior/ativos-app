@@ -1,14 +1,12 @@
 from dotenv import load_dotenv
-import pandas as pd
-import streamlit as st
 import warnings
-import matplotlib.pyplot as plt
-warnings.simplefilter("ignore")
-load_dotenv()
 
+load_dotenv()
 from src.service.vendas_service import obtemLucroVendasPorAno
 from src.service.dividendos_service import obtemDividendosPorAno
 from src.service.lucro_ativos_service import obtemLucrosAtivosPorAno
+
+warnings.simplefilter("ignore")
 
 
 
@@ -27,4 +25,3 @@ print(df_dividendo_mais_lucro_vendas)
 
 if __name__ == "__main__":
     print("chamado direto")
-

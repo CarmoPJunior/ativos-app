@@ -1,4 +1,4 @@
-from fastapi import FastAPI, Query
+from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from src.routes.dividendos_routes import dividendos_routes
@@ -20,6 +20,7 @@ api.add_middleware(
     allow_headers=["*"],
 )
 
+
 @api.get("/")
 def root():
     """Api Ativos"""
@@ -29,8 +30,3 @@ def root():
 api.include_router(dividendos_routes)
 api.include_router(vendas_routes)
 api.include_router(ativos_routes)
-
-
-# return Response(
-#     df_dividendos_por_mes.to_json(orient="records"),
-#     media_type="application/json")
