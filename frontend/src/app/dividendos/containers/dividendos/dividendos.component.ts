@@ -21,7 +21,7 @@ export class DividendosComponent implements OnInit {
   constructor( private dividendosService: DividendosService,
     public dialog: MatDialog,
   ) {
-    this.getDividendos();
+
     this.yearSelected = 0;
   }
 
@@ -49,5 +49,7 @@ export class DividendosComponent implements OnInit {
     console.log(errorMsg);
   }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    this.getDividendos();
+  }
 }

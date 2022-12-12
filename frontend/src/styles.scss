@@ -1,64 +1,53 @@
 /* You can add global styles to this file, and also import other style files */
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 
-/* You can add global styles to this file, and also import other style files */
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
+// /* Angular material theme */
+@import '@angular/material/theming';
+@include mat-core();
+// Descomente a linha abaixo para um custom theme
+// $custom-app-primary: mat-palette($mat-blue);
+// $custom-app-secondary: mat-palette($mat-indigo, A200, A400, 700);
+// $custom-app-warn: mat-palette($mat-red);
+// $custom-theme: mat-light-theme($custom-app-primary, $custom-app-secondary,  $custom-app-warn);
+// @include angular-material-theme($custom-theme);
+
+// *** Reset CSS
+*,
+*:after,
+*:before{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
-	display: block;
+    display: block;
 }
 body {
-	line-height: 1;
-  font-family: "Open Sans", Helvetica, Arial, "sans-serif";
+    line-height: 1;
 }
 ol, ul {
-	list-style: none;
+    list-style: none;
 }
 blockquote, q {
-	quotes: none;
+    quotes: none;
 }
 blockquote:before, blockquote:after,
 q:before, q:after {
-	content: '';
-	content: none;
+    content: '';
+    content: none;
 }
 table {
-	border-collapse: collapse;
-	border-spacing: 0;
+    border-collapse: collapse;
+    border-spacing: 0;
 }
-
-
-
-*{
-  margin: 0;
-  padding: 0;
-  font-family :'Roboto', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-*, :after, :before {
-  box-sizing: border-box;
-}
+// *** Reset CSS
 
 :root{
   --blue: #287bff;
@@ -67,14 +56,16 @@ table {
   --grey: #f5f5f5;
   --black1: #222222;
   --black2:#999;
+  --status-background-alert: #f00;
+  --status-background-warning: #f9ca3f;
+  --status-background-sucess: #8de02c;
+  --status-background-inprogress: #1795ce;
 }
 
 html, body{
   height: 100vh;
-  min-height: 100vh;
   width: 100vw;
 }
-
 body{
   min-height: 100vh;
   overflow: scroll;
@@ -84,18 +75,6 @@ body{
   background: var(--white2);
 }
 
-// /* You can add global styles to this file, and also import other style files */
-// @import '@angular/material/theming';
-// @include mat-core();
-
-// $custom-app-primary: mat-palette($mat-blue);
-// $custom-app-secondary: mat-palette($mat-indigo, A200, A400, 700);
-// $custom-app-warn: mat-palette($mat-red);
-
-// $custom-theme: mat-light-theme($custom-app-primary, $custom-app-secondary,  $custom-app-warn);
-
-// @include angular-material-theme($custom-theme);
-
 /* status */
 .status{
   padding: 2px 4px;
@@ -104,21 +83,18 @@ body{
   font-weight: 500;
 }
 .status.delivered{
-  background: #8de02c;
+  background: var(--status-background-sucess);
   color: var(--white);
 }
 .status.pending{
-  background: #f9ca3f;
+  background: var(--status-background-warning);
   color: var(--white);
 }
 .status.return{
-  background: #f00;
+  background: var(--status-background-alert);
   color: var(--white);
 }
 .status.inprogress{
-  background: #1795ce;
+  background: var(--status-background-inprogress);
   color: var(--white);
 }
-
-
-

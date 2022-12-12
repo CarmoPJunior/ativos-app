@@ -65,7 +65,7 @@
 
 #### Executar o comando abaixo para usar a api
 
-> python Executar_api.py
+> python run_api.py
 
 ou
 
@@ -73,7 +73,7 @@ ou
 
 #### Executar o comando abaixo para usar o streamlit
 
-> streamlit Executar src/streamlit.py
+> streamlit run src/streamlit.py
 
 ---
 

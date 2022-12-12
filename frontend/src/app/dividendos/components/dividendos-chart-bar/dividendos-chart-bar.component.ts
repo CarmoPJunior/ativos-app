@@ -2,12 +2,9 @@ import { Component, ViewChild, Input, OnInit } from '@angular/core';
 
 import { ChartConfiguration, ChartData, ChartEvent, ChartType,  } from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
-
 // import DataLabelsPlugin from 'chartjs-plugin-datalabels';
 
 import { IDividendos } from '../../models/dividendos.model';
-
-
 
 @Component({
   selector: 'app-dividendos-chart-bar',
