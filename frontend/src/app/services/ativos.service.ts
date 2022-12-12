@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { IAtivo } from '../models/ativo.model';
+import { IAtivo } from '../shared/models/ativo.model';
 import { delay, first, tap, map } from 'rxjs/operators';
 
 @Injectable({

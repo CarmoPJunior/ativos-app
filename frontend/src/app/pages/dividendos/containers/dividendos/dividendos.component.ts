@@ -1,11 +1,11 @@
 import { Component, OnInit} from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { catchError, map, tap } from 'rxjs/operators';
+import { catchError} from 'rxjs/operators';
 import { MatDialog as MatDialog } from '@angular/material/dialog';
 
-import { IDividendos } from '../../models/dividendos.model';
-import { DividendosService } from '../../services/dividendos.service';
-import { ErrorDialogComponent } from '../../../shared/components/error-dialog/error-dialog.component';
+import { IDividendos } from '../../../../shared/models/dividendos.model';
+import { DividendosService } from '../../../../services/dividendos.service';
+import { ErrorDialogComponent } from '../../../../components/error-dialog/error-dialog.component';
 
 
 @Component({

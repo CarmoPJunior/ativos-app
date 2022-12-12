@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { IDividendos } from '../models/dividendos.model';
+import { IDividendos } from '../shared/models/dividendos.model';
 import { first, map } from 'rxjs/operators';
 
 @Injectable({

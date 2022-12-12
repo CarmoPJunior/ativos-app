@@ -1,10 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-import { ReactiveFormsModule } from '@angular/forms';
-import { AppMaterialModule } from '../shared/app-material/app-material.module';
-import { SharedModule } from './../shared/shared.module';
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { AppMaterialModule } from '../../shared/app-material/app-material.module';
+import { SharedModule } from '../../shared/shared.module';
 import { NgChartsModule } from 'ng2-charts';
 
 import { DividendosRoutingModule } from './dividendos-routing.module';
@@ -16,7 +14,6 @@ import { DividendosTotalPieChartComponent } from './components/dividendos-total-
 
 @NgModule({
   declarations: [
-
     DividendosComponent,
        DividendosListComponent,
        DividendosChartBarComponent,

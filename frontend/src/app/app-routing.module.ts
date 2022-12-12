@@ -2,10 +2,10 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: 'page-test' },
-  { path: 'page-test', loadChildren: () => import('./page-test/page-test.module').then(m => m.PageTestModule) },
-  { path: 'ativos', loadChildren: () => import('./ativos/ativos.module').then(m => m.AtivosModule) },
-  { path: 'dividendos', loadChildren: () => import('./dividendos/dividendos.module').then(m => m.DividendosModule) },
+  { path: '', pathMatch: 'full', redirectTo: 'home' },
+  { path: 'home', loadChildren: () => import('./pages/home/home.module').then(m => m.PageTestModule) },
+  { path: 'ativos', loadChildren: () => import('./pages/ativos/ativos.module').then(m => m.AtivosModule) },
+  { path: 'dividendos', loadChildren: () => import('./pages/dividendos/dividendos.module').then(m => m.DividendosModule) },
   {path: '**', redirectTo: ''}
 ];
 

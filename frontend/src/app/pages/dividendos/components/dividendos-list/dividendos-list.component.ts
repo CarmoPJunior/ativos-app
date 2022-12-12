@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 
-import { IDividendos } from '../../models/dividendos.model';
+import { IDividendos } from '../../../../shared/models/dividendos.model';
 
 @Component({
   selector: 'app-dividendos-list',
@@ -14,8 +14,6 @@ export class DividendosListComponent implements OnInit {
   @Output() eventSelectedYear = new EventEmitter();
 
   totalValueDividendos: number = 0;
-
-  constructor() {}
 
   ngOnInit(): void {
     this.sumValueTotalDividendos();
