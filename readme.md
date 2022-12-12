@@ -24,12 +24,12 @@
 
 #### Criar arquivo <b>.env</b> com os enviroments abaixo
 
-> API_PORT = 8080
-> API_HOST = localhost
-> STREAMLIT_SERVER_PORT = 8181
-> UVICORN_RELOAD = True
-> UVICORN_DEBUG = False
-> PLANILHA_ATIVOS = ./data/contas.xlsx
+> API_PORT = 8080 <br>
+> API_HOST = localhost <br>
+> STREAMLIT_SERVER_PORT = 8181 <br>
+> UVICORN_RELOAD = True <br>
+> UVICORN_DEBUG = False <br>
+> PLANILHA_ATIVOS = ./data/contas.xlsx <br>
 
 #### Criar o ambiente virtual
 
