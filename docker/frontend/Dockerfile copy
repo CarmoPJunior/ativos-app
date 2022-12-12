@@ -1,0 +1,46 @@
+ARG APP_NAME=frontend
+ARG APP_PATH=/opt/$APP_NAME
+ARG NODE_VERSION=16-alpine3.16
+
+FROM node:$NODE_VERSION AS build
+ARG APP_NAME
+ARG APP_PATH
+
+# RUN mkdir -p $APP_PATH/node_modules && chown -R node:node $APP_PATH
+
+# muda para o diretório de trabalho
+WORKDIR $APP_PATH
+
+
+
+# Copia o arquivo package.json para a imagem
+COPY ./$APP_NAME/package.json ./$APP_NAME/package-lock.json $APP_PATH/
+
+RUN npm install
+
+# COPY --chown=node:node ./$APP_NAME/ $APP_PATH
+COPY ./$APP_NAME/ $APP_PATH
+
+# USER node
+
+RUN npm run build
+
+### STAGE 2: Run ###
+FROM nginx:1.17.1-alpine
+# ARG APP_NAME
+# ARG APP_PATH
+
+# ## Remove default Nginx website
+RUN rm -rf /usr/share/nginx/html/*
+
+COPY nginx.conf /etc/nginx/nginx.conf
+COPY --from=build /usr/src/app/dist/aston-villa-app /usr/share/nginx/html
+
+# RUN echo "mainFileName=\"\$(ls /usr/share/nginx/html/main*.js)\" && \
+#           envsubst '\$URL_IMAGEM ' < \${mainFileName} > main.tmp && \
+#           mv main.tmp  \${mainFileName} && nginx -g 'daemon off;'" > run.sh
+
+# CMD ["sh", "run.sh"]
+
+
+# chown -R $USER:$USER ~/laravel-app

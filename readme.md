@@ -107,5 +107,6 @@ ou
 > <http://127.0.0.1:8000/dividendos/ano/>
 
 
-
-<!-- > git commit -am 'Print a hello world message -->
+<!-- Comandos Úteis -->
+<!-- docker builder prune -f  -->
+<!-- docker system df  -->
