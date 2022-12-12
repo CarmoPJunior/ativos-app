@@ -1,46 +1,23 @@
 from dotenv import load_dotenv
-import pandas as pd
 import streamlit as st
-import warnings
-# import matplotlib.pyplot as plt
-# warnings.simplefilter("ignore")
-load_dotenv()
-
+import sys
 from st_aggrid import AgGrid, GridOptionsBuilder
-from st_aggrid.shared import GridUpdateMode
 from st_aggrid.shared import JsCode
+import pandas as pd
 
-from clear_vendas import agrupa_lucro_vendas_por_mes
-from clear_vendas import obtem_lucro_vendas_por_ano
-from clear_dividendos import agrupa_dividendos_por_mes
-
-
-def agrupa_dividendo_mais_lucro_vendas(ano:list[int]):
-
-    lucro_vendas_por_mes = agrupa_lucro_vendas_por_mes()
-    df_dividendos_por_mes = agrupa_dividendos_por_mes()
-
-    lucro_venda_mais_dividendos = pd.merge(
-        lucro_vendas_por_mes, df_dividendos_por_mes, on = ["Ano", "Mes" ],
-        how="right"
-    ).fillna(0)
-    # pd.merge(df1, df2, on=['id', 'name']).set_index(['id', 'name']).sum(axis=1)
-
-    lucro_venda_mais_dividendos = lucro_venda_mais_dividendos[
-        lucro_venda_mais_dividendos.Ano.isin(ano)
-    ]
-
-    return lucro_venda_mais_dividendos.eval('Sum = LUCRO + VALOR')
+load_dotenv()
+sys.path.append(".")
+from service.lucro_ativos_service import obtemLucrosAtivosPorAno
 
 
 def main() -> None:
 
-    st.header("Fidelity Account Overview :moneybag: :dollar: :bar_chart:")
-    # st.title('Uber pickups llin NYC')
+    st.header("Lucro Ativos :moneybag: :dollar: :bar_chart:")
+    # st.title('title')
 
-    data_load_state = st.text('Loading data...')
-    data = agrupa_dividendo_mais_lucro_vendas([2022, 2021, 2020])
-    data_load_state.text('Loading data...done!')
+    data_load_state = st.text('Obtendo dados...')
+    data = obtemLucrosAtivosPorAno([2022, 2021, 2020])
+    data_load_state.text('Dados carregados... !')
 
     with st.expander("Raw Dataframe"):
         st.write(data)
@@ -48,17 +25,16 @@ def main() -> None:
 # ------- SIDEBAR
     st.sidebar.title("Investimentos")
     st.sidebar.header("Filtros")
-    # st.sidebar.subheader("by CJ")
 
     st.sidebar.subheader("Filtro por ano")
 
-    accounts = list(data.Ano.unique())
-    account_selections = st.sidebar.multiselect(
-        "Select Accounts to View", options=accounts, default=accounts
+    yearsSelection = list(data.ano.unique())
+    selectedYears = st.sidebar.multiselect(
+        "Selecione um ano",
+        options=yearsSelection,
+        default=yearsSelection
     )
 # ------- SIDEBAR
-
-    df = agrupa_dividendo_mais_lucro_vendas(account_selections)
 
     st.subheader("Vendas Por Mês")
     cellsytle_jscode = JsCode(
@@ -67,51 +43,50 @@ def main() -> None:
         if (params.value > 0) {
             return {
                 'color': 'white',
-                'backgroundColor': 'forestgreen'
+                'backgroundColor': '#0ea600'
             }
         } else if (params.value < 0) {
             return {
                 'color': 'white',
-                'backgroundColor': 'crimson'
+                'backgroundColor': 'rgb(255, 75, 75)'
             }
         } else {
             return {
-                'color': 'white',
-                'backgroundColor': 'slategray'
+                'color': 'black',
+                'backgroundColor': 'white'
             }
         }
     };
     """
     )
 
-    gb = GridOptionsBuilder.from_dataframe(df)
+    # Filtra o dataframe por ano
+    dfLucroAtivosAno = obtemLucrosAtivosPorAno(selectedYears)
+
+    # Trata os dados do dataframe
+    dfLucroAtivosAno['mesAno'] = dfLucroAtivosAno[['mes', 'ano']].astype(str).apply('-'.join, axis=1)
+    dfLucroAtivosAno['mesAno'] = pd.to_datetime(dfLucroAtivosAno['mesAno'])
+    dfLucroAtivosAno['mesAno'] = dfLucroAtivosAno['mesAno'].dt.strftime('%m-%Y')
+    dfLucroAtivosAno.drop(["mes", "ano"], axis=1, inplace=True)
+
+    # Monta a tabela
+    gb = GridOptionsBuilder.from_dataframe(dfLucroAtivosAno)
     gb.configure_columns(
-        (
-            "LUCRO",
-        ),
+        ("lucroVenda", "valorDividendo", "totalLucroVendaDividendo"),
         cellStyle=cellsytle_jscode,
     )
 
-    gb.configure_pagination(paginationAutoPageSize=False,paginationPageSize=12)
-    gb.configure_columns(("account_name", "symbol"), pinned=True)
+    gb.configure_pagination(
+            paginationAutoPageSize=False, paginationPageSize=12)
+    gb.configure_columns(('mesAno'), pinned=True)
     gridOptions = gb.build()
-
-    AgGrid(df,
-            gridOptions=gridOptions,
-            fit_columns_on_grid_load=True,
-            allow_unsafe_jscode=True)
-
-
-
-
-
-
-
+    AgGrid(dfLucroAtivosAno, gridOptions=gridOptions,
+        fit_columns_on_grid_load=True, allow_unsafe_jscode=True)
 
 
 if __name__ == "__main__":
     st.set_page_config(
-        "Fidelity Account View by Gerard Bentley",
+        "Ativos",
         "📊",
         initial_sidebar_state="expanded",
         layout="wide",
