@@ -1,79 +1,109 @@
 # Ativos - Frontend
 
-## Development server
+# Objetivo
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+---
 
-## Code scaffolding
+## Executar o Build do projeto
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+> ng build
 
-## Build
+## Executar  unit tests
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+> ng test
 
-## Running unit tests
+## Executar end-to-end tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+> ng e2e
 
-## Running end-to-end tests
+## Executar o Lint
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+> npm run lint
 
-## npm install
+## Instalar as dependências do projeto
+
+> npm install
+
+## Executar o projeto em desenvolvimento
+
+> ng server
+  ou
+> npm start
+
+---
 
 ## Iniciando o projeto
 
 > ng new frontend --routing --style=scss -S
 
 #### Verifica se tem libs desatualizadas
+
 > ng update
+
 #### Atualiza as libs
+
 > ng update @angular/cli @angular/core @angular/material @angular/cdk
 
 ## Libs instaladas
+
 > ng add @angular/material
 > ng add @ionic/angular
 > ng add ng2-charts
+> npm i tslint --save-dev
+> ng add @angular-eslint/schematics
 
+## Comandos usados
 
-
-## Running 
-
-> ng start
-ou
-> npm start
-
-### Comandos usados
+### Componentes e Pages
 
 > ng g c components/footer
 > ng g c components/header
+> ng g c components/menu
 
-> ng g m ativos --route ativos --module app.module
-> ng g m dividendos --route dividendos --module app.module
-> ng g m page-test --route page-test --module app.module
+> ng g m pages/home --route home --module app.module
+> ng g m pages/dividendos --route dividendos --module app.module
+> ng g m pages/vendas --route vendas --module app.module
+> ng g m pages/ativos --route ativos --module app.module
 
-> ng g c ativos/containers/ativos
-> ng g c ativos/components/ativos-list
+> ng g c pages/dividendos/containers/dividendos
+> ng g c pages/dividendos/components/dividendos-list
+> ng g c pages/dividendos/components/dividendos-chart-bar
+> ng g c pages/dividendos/components/dividendos-total-pie-chart
 
-> ng g c dividendos/containers/dividendos
-> ng g c dividendos/components/dividendos-list
-> ng g c dividendos/components/dividendos-chart-bar
-> ng g c dividendos/components/dividendos-total-pie-chart
+> ng g c pages/vendas/containers/vendas
+> ng g c pages/vendas/components/vendas-list
+> ng g c pages/vendas/components/vendas-chart-bar
+
+> ng g c pages/ativos/containers/ativos
+> ng g c pages/ativos/components/ativos-list
+
+
+### Serviçes:
+
+> ng g s services/ativos
+> ng g s services/dividendos
+> ng g s services/vendas
+
+### Componentes compartilhados
 
 > ng g m shared --routing
 > ng g m shared/app-material
 > ng g c shared/components/error-dialog --module shared
 > ng g pipe shared/pipes/mes-abreviado --module shared
 
-> ng g s ativos/services/ativos
 
-> ng g s dividendos/services/dividendos
+---
 
+# REFERÊNCIAS
 
-## REFERÊNCIAS
+> Angular Docs: <https://angular.io/docs>
+> ng2-charts: <https://valor-software.com/ng2-charts>
+> Typescriptlang: <https://www.typescriptlang.org/pt/>
+> <https://www.ideas2it.com/blogs/angular-development-best-practices/>
 
-> Angular Docs: https://angular.io/docs
-> ng2-charts: https://valor-software.com/ng2-charts
-> Typescriptlang: https://www.typescriptlang.org/pt/
-> https://www.ideas2it.com/blogs/angular-development-best-practices/
+## Code scaffolding
+
+> Run 
+> > `ng generate component component-name` 
+> to generate a new component. You can also use 
+> > `ng generate directive|pipe|service|class|guard|interface|enum|module`.

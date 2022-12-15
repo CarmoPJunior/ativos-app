@@ -18,10 +18,9 @@ export class DividendosComponent implements OnInit {
   dividendos$!: Observable<IDividendos[]>;
   yearSelected: number;
 
-  constructor( private dividendosService: DividendosService,
-    public dialog: MatDialog,
+  constructor(  private dividendosService: DividendosService,
+                public dialog: MatDialog,
   ) {
-
     this.yearSelected = 0;
   }
 

@@ -15,9 +15,9 @@ import { DividendosTotalPieChartComponent } from './components/dividendos-total-
 @NgModule({
   declarations: [
     DividendosComponent,
-       DividendosListComponent,
-       DividendosChartBarComponent,
-       DividendosTotalPieChartComponent
+    DividendosListComponent,
+    DividendosChartBarComponent,
+    DividendosTotalPieChartComponent
   ],
   imports: [
     CommonModule,

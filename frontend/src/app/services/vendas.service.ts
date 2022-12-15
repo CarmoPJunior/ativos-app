@@ -1,32 +1,32 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { IDividendos } from '../shared/models/dividendos.model';
+import { IVendas } from '../shared/models/vendas.model';
 import { first, map } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
-export class DividendosService {
+export class VendasService {
 
-  private readonly API = `${environment.config.apiUrl}/dividendos`;
+  private readonly API = `${environment.config.apiUrl}/vendas`;
 
   constructor(private httpClient: HttpClient) {
   }
 
-  getDividendosByAno(ano: number) {
+  getVendasByYear(ano: number) {
 
-    let urlApi = `${this.API}/ano/`;
+    let urlApi = `${this.API}/lucro/ano/`;
 
     if(ano)
-      urlApi = `${this.API}/ano/?ano=${ano}`;
+      urlApi = `${this.API}/lucro/ano/?ano=${ano}`;
 
     return this.httpClient
-      .get<IDividendos[]>(urlApi)
+      .get<IVendas[]>(urlApi)
       .pipe(
         first(),
-        map(dividendos => (
-          dividendos.map((item) => {
+        map(vendas => (
+          vendas.map((item) => {
             return item
           })
         ))

@@ -11,7 +11,7 @@ import { IonicModule } from '@ionic/angular';
 import { NgChartsModule } from 'ng2-charts';
 import ptBr from '@angular/common/locales/pt';
 import { registerLocaleData } from '@angular/common';
-
+import { MenuComponent } from './components/menu/menu.component';
 
 registerLocaleData(ptBr);
 
@@ -19,7 +19,8 @@ registerLocaleData(ptBr);
   declarations: [
     AppComponent,
     FooterComponent,
-    HeaderComponent
+    HeaderComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,

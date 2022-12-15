@@ -1,0 +1,59 @@
+<div class="card">
+
+  <div class="cardHeader">
+    <h2>Lucro Ativos Vendidos</h2>
+
+    <div class="cardHeader-rightItem">
+
+      <label for="selectAno">Escolha um Ano:</label>
+
+      <select  [(ngModel)]="yearSelected" (change)="onSelect()">
+          <option value="0">Selecione um item</option>
+          <option value="2022">2022</option>
+          <option value="2021">2021</option>
+          <option value="2020">2020</option>
+      </select>
+
+    </div>
+  </div>
+
+  <div class="card-body">
+
+    <table>
+      <thead>
+        <tr>
+          <td>Icone</td>
+          <td>Mês/Ano</td>
+          <td>Lucro</td>
+          <td>Status</td>
+        </tr>
+      </thead>
+
+      <tbody *ngIf="vendas.length > 0; else noContent" >
+
+          <tr *ngFor="let venda of vendas" >
+            <td class="icone">
+              <ion-icon name="cash-outline"></ion-icon>
+            </td>
+            <td>{{ venda.mes | mesAbreviado}}/{{venda.ano}}</td>
+            <td>{{ venda.lucro | currency }}</td>
+            <td><span class="status delivered">Positivo</span></td>
+          </tr>
+
+      </tbody>
+    </table>
+
+  </div>
+
+  <div class="card-footer">
+    <h2>Total: {{totalValueVendas | currency:"BRL" }}</h2>
+  </div>
+
+</div>
+
+<ng-template #noContent>
+  <tr>
+    <td colspan="11">Nenhum conteúdo foi encontrado!<td>
+  </tr>
+</ng-template>
+

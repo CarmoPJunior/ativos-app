@@ -2,18 +2,18 @@ import { Component, ViewChild, Input, OnInit } from '@angular/core';
 import { ChartConfiguration, ChartData, ChartEvent, ChartType,  } from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
 
-import { IDividendos } from '../../../../shared/models/dividendos.model';
+import { IVendas } from 'src/app/shared/models/vendas.model';
 import {MesPorExtensoConstants} from '../../../../shared/constants/mesPorExtensoConst'
 
 @Component({
-  selector: 'app-dividendos-chart-bar',
-  templateUrl: './dividendos-chart-bar.component.html',
-  styleUrls: ['./dividendos-chart-bar.component.scss']
+  selector: 'app-vendas-chart-bar',
+  templateUrl: './vendas-chart-bar.component.html',
+  styleUrls: ['./vendas-chart-bar.component.scss']
 })
-export class DividendosChartBarComponent implements OnInit{
+export class VendasChartBarComponent implements OnInit{
 
   @Input() yearSelected!: number;
-  @Input() dividendos: IDividendos[] = [];
+  @Input() vendas: IVendas[] = [];
   @ViewChild(BaseChartDirective) chart: BaseChartDirective | undefined;
 
   public barChartOptions: ChartConfiguration['options'] = {
@@ -37,7 +37,7 @@ export class DividendosChartBarComponent implements OnInit{
 
   ngOnInit(): void {
 
-    let valuesGroupByYear = this.groupByYear(this.dividendos, 'ano');
+    let valuesGroupByYear = this.groupByYear(this.vendas, 'ano');
 
     for (const key in valuesGroupByYear) {
       this.barChartData.datasets.push(valuesGroupByYear[key])
@@ -55,18 +55,9 @@ export class DividendosChartBarComponent implements OnInit{
 
         if (!acc[item[key]]) acc[item[key]] = yearly
 
-        acc[item[key]]['data'].push(item.valor)
+        acc[item[key]]['data'].push(item.lucro)
         return acc
       }, {})
-  }
-
-  // events
-  public chartClicked({ event, active }: { event?: ChartEvent, active?: {}[] }): void {
-    console.log(event, active);
-  }
-
-  public chartHovered({ event, active }: { event?: ChartEvent, active?: {}[] }): void {
-    console.log(event, active);
   }
 
 }
