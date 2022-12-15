@@ -1,1 +1,113 @@
+/* card */
+.card{
+  position: relative;
+  display: grid;
+  min-height: 500px;
+  max-height: 500px;
+  background: var(--white);
+  padding: 0.8rem;
+  margin: 0.8rem 0.5rem;
+  transition: box-shadow .25s;
+  box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 12%), 0 1px 5px 0 rgb(0 0 0 / 20%);
+  border-radius: 0.5rem;
+}
+.cardHeader{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.cardHeader h2{
+  font-weight: 600;
+  color: var(--blue);
+  margin-top: 0px;
+  font-size: 1.5em;
+}
+.btn{
+  position: relative;
+  padding: 5px 10px;
+  background: var(--blue);
+  text-decoration: none;
+  color: var(--white);
+  border-radius: 6px;
+}
 
+.cardHeader-rightItem{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  font-size: 0.8rem;
+  padding: 0.1rem 0.1rem 0.5rem;
+}
+.cardHeader-rightItem select{
+    width: 100%;
+    border-radius: 1rem;
+    padding: 0.21rem;
+    outline: none;
+    border: 1px solid var(--blue);
+    font-weight: 700;
+    color: var(--black2);
+}
+.cardHeader-rightItem label{
+    margin-left: 0.3rem;
+    padding: 0.2rem;
+    font-weight: 700;
+    color: var(--blue);
+}
+.card-body{
+  overflow-y: scroll;
+  height: 370px;
+}
+.card-footer{
+  padding: 0.8rem 0 0.1rem;
+  box-shadow: rgba(17, 17, 26, 0.5) 0 -5px 5px -5px;
+}
+.card-footer h2{
+  font-weight: 700;
+  color: var(--blue);
+  margin-top: 0px;
+  font-size: 1.4rem;
+  padding-left: 1rem;
+}
+.card table{
+  width: 100%;
+  border-collapse: collapse;
+}
+.card table thead {
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+  transition: box-shadow .25s;
+  box-shadow: rgb(17 17 26 / 10%) 0px 2px 0px;
+  background-color: var(--white);
+  z-index: 100;
+}
+.card table thead td, .card table tfoot td{
+  font-weight: 700;
+}
+.card table tr{
+  color: var(--black1);
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+.card table tr:last-child{
+  border-bottom: none;
+}
+.card table tbody tr:hover{
+  background: var(--blue);
+  color: var(--white);
+}
+.card table tr td{
+  padding: 10px;
+}
+.card table tbody td{
+  font-weight: 500;
+}
+.card table tfoot {
+  position: sticky;
+  position: -webkit-sticky;
+  bottom: 0;
+  transition: box-shadow .25s;
+  padding: 0.8rem 0 0.1rem;
+  box-shadow: rgba(17, 17, 26, 0.5) 0 -5px 5px -5px;
+  background-color: var(--white);
+  z-index: 100;
+}

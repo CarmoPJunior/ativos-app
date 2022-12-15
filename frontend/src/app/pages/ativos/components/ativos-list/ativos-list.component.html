@@ -1,3 +1,91 @@
-<div>
-  <h2>Em Desenvolvimento ...</h2>
+<div class="card">
+
+  <div class="cardHeader">
+    <h2>Ativos Lucros Obtidos</h2>
+
+    <div class="cardHeader-rightItem">
+
+      <label for="selectAno">Escolha um Ano:</label>
+
+      <select [(ngModel)]="yearSelected" (change)="onSelect()">
+        <option value="0">Selecione um item</option>
+        <option value="2022">2022</option>
+        <option value="2021">2021</option>
+        <option value="2020">2020</option>
+      </select>
+
+    </div>
+  </div>
+
+  <div class="card-body">
+
+    <table>
+      <thead>
+        <tr>
+          <td class="text-align-center">Mês/Ano</td>
+          <td class="text-align-right">Lucro Venda</td>
+          <td class="text-align-right">Val. Dividendo</td>
+          <td class="text-align-right">Lucro Total</td>
+          <td class="text-align-center">Saldo</td>
+        </tr>
+      </thead>
+
+      <tbody *ngIf="ativos.length > 0; else noContent">
+
+        <tr *ngFor="let ativo of ativos">
+          <td class="text-align-center">
+            {{ ativo.mes | mesAbreviado}}/{{ativo.ano}}
+          </td>
+          <td class="text-align-right"
+              [ngClass]="{'text-alert': ativo.lucroVenda < 0}">
+            {{ ativo.lucroVenda| currency }}
+          </td>
+          <td class="text-align-right"
+              [ngClass]="{'text-alert': ativo.valorDividendo < 0}">
+            {{ ativo.valorDividendo| currency }}
+          </td>
+          <td class="text-align-right"
+              [ngClass]="{'text-alert': ativo.totalLucroVendaDivendendo < 0}">
+            {{ ativo.totalLucroVendaDivendendo | currency }}
+            <ion-icon name="arrow-up"
+                      [ngClass]="ativo.totalLucroVendaDivendendo < 0 ? 'text-alert' : 'text-success'">
+            </ion-icon>
+          </td>
+          <td class="text-align-center">
+            <span class="status "
+                  [ngClass]="ativo.totalLucroVendaDivendendo < 0 ? 'alert' : 'success'">
+
+              {{ ativo.totalLucroVendaDivendendo < 0 ? 'Negativo' : 'Positivo' }}
+            </span>
+          </td>
+        </tr>
+
+      </tbody>
+
+      <tfoot class="card-footer">
+        <tr>
+          <td>Total:</td>
+          <td class="text-align-right">
+            {{ativosTotalValues.lucroVendaTotal | currency:"BRL" }}
+          </td>
+          <td class="text-align-right">
+            {{ativosTotalValues.valorDividendoTotal | currency:"BRL" }}
+          </td>
+          <td class="text-align-right">
+            {{ativosTotalValues.totalLucroVendaDivendendo | currency:"BRL" }}
+          </td>
+          <td></td>
+        </tr>
+      </tfoot>
+    </table>
+
+  </div>
+
 </div>
+
+<ng-template #noContent>
+  <tr>
+    <td colspan="6">Nenhum conteúdo foi encontrado!
+    <td>
+  </tr>
+</ng-template>

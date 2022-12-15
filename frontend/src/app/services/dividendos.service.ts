@@ -25,11 +25,6 @@ export class DividendosService {
       .get<IDividendos[]>(urlApi)
       .pipe(
         first(),
-        map(dividendos => (
-          dividendos.map((item) => {
-            return item
-          })
-        ))
       );
   }
 }

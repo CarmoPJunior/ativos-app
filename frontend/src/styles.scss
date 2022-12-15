@@ -58,8 +58,12 @@ table {
   --black2:#999;
   --status-background-alert: #f00;
   --status-background-warning: #f9ca3f;
-  --status-background-sucess: #8de02c;
+  --status-background-success: #8de02c;
   --status-background-inprogress: #1795ce;
+  --text-success: #8de02c;
+  --text-alert: #f00;
+  --text-warning:#f9ca3f;
+  --text-inprogress: #1795ce;
 }
 
 html, body{
@@ -74,6 +78,16 @@ body{
   letter-spacing: 0.7px;
   background: var(--white2);
 }
+// Align Text
+.text-align-right{
+  text-align: right;
+}
+.text-align-left{
+  text-align: left;
+}
+.text-align-center{
+  text-align: center;
+}
 
 /* status */
 .status{
@@ -82,19 +96,32 @@ body{
   font-size: 14px;
   font-weight: 500;
 }
-.status.delivered{
-  background: var(--status-background-sucess);
+.status.success{
+  background: var(--status-background-success);
   color: var(--white);
 }
-.status.pending{
+.status.warning{
   background: var(--status-background-warning);
   color: var(--white);
 }
-.status.return{
+.status.alert{
   background: var(--status-background-alert);
   color: var(--white);
 }
 .status.inprogress{
   background: var(--status-background-inprogress);
   color: var(--white);
+}
+/* status text*/
+.text-success{
+  color: var(--text-success)
+}
+.text-warning{
+  color: var(--text-warning)
+}
+.text-alert{
+  color: var(--text-alert)
+}
+.text-inprogress{
+  color: var(--text-inprogress)
 }

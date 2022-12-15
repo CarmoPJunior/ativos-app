@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
 import { Observable, of } from 'rxjs';
-import { catchError, map, tap } from 'rxjs/operators';
+import { catchError} from 'rxjs/operators';
 import { MatDialog } from '@angular/material/dialog';
 
 import { IAtivo } from '../../../../shared/models/ativo.model';
@@ -13,22 +12,32 @@ import { ErrorDialogComponent } from '../../../../components/error-dialog/error-
   templateUrl: './ativos.component.html',
   styleUrls: ['./ativos.component.scss']
 })
-export class AtivosComponent {
+export class AtivosComponent implements OnInit {
 
-  ativos$: Observable<IAtivo[]>;
+  ativos$!: Observable<IAtivo[]>;
+  yearSelected: number;
 
-  constructor(
-    private ativosService: AtivosService,
-    public dialog: MatDialog,
-    public formAtivosDialog : MatDialog,
+  constructor(  private ativosService: AtivosService,
+                public dialog: MatDialog,
   ) {
-    this.ativos$ = this.ativosService.list()
-      .pipe(
-        catchError(error => {
-          this.onError('Erro ao carregar ativos!.');
-          return of([])
-        })
-      );
+    this.yearSelected = 0;
+  }
+
+  receiverYearSelected(year: number) {
+    this.yearSelected = year;
+    this.getAtivos()
+  }
+
+  getAtivos(){
+
+    this.ativos$ = this.ativosService.getAtivosByYear(this.yearSelected)
+    .pipe(
+      catchError(error => {
+        this.onError('Erro ao carregar ativos!.');
+        return of([])
+      })
+    );
+
   }
 
   onError(errorMsg: string) {
@@ -38,13 +47,7 @@ export class AtivosComponent {
     console.log(errorMsg);
   }
 
-  onAdd() {
-    console.log("add");
+  ngOnInit(): void {
+    this.getAtivos();
   }
-
-  onEdit(ativo: IAtivo) {
-    console.log("add");
-  }
-
-
 }

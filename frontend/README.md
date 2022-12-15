@@ -76,7 +76,7 @@
 
 > ng g c pages/ativos/containers/ativos
 > ng g c pages/ativos/components/ativos-list
-
+> ng g c pages/ativos/components/ativos-chart-bar
 
 ### Serviçes:
 

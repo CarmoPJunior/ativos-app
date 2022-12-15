@@ -1,27 +1,13 @@
 export interface IAtivo {
-  id: number;
-  description: string;
-  sigla: string;
-  qtCompra: number;
-  qtPrevistaCompra: number;
-  valorCompra: number;
-  valorAtualCotacao: number;
-  valorDividendos: number;
-  porcentagemVenda: number;
-  tipoAtivo: string;
+  ano: number,
+  mes: number,
+  lucroVenda: number,
+  valorDividendo: number,
+  totalLucroVendaDivendendo: number
+}
 
-  valorTotal: number;
-  lucroTotal: number;
-  valorAInvestir: number;
-  lucroUnitario: number;
-  valorVenda: number;
-
-  valorTotalSimulado: number;
-  qtTotalCompraSimulado: number;
-  valorMedioSimulado: number;
-  lucroUnitarioSimulado: number;
-  valorVendaSimulado: number;
-  lucroTotalSimulado: number;
-
-
+export interface IAtivoTotalValues{
+  lucroVendaTotal: number,
+  valorDividendoTotal: number,
+  totalLucroVendaDivendendo: number
 }

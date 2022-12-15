@@ -1,23 +1,50 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
-import { IAtivo } from '../../../../shared/models/ativo.model';
+import { IAtivo, IAtivoTotalValues } from '../../../../shared/models/ativo.model';
 
 @Component({
   selector: 'app-ativos-list',
   templateUrl: './ativos-list.component.html',
   styleUrls: ['./ativos-list.component.scss']
 })
-export class AtivosListComponent {
+export class AtivosListComponent implements OnInit {
 
+  ativosTotalValueInitialValue = {
+    "lucroVendaTotal" : 0,
+      "valorDividendoTotal":0,
+      "totalLucroVendaDivendendo":0
+  }
+
+  @Input() yearSelected!:number;
   @Input() ativos: IAtivo[] = [];
-  @Output() add = new EventEmitter(false);
-  @Output() edit = new EventEmitter(false);
+  @Output() eventSelectedYear = new EventEmitter();
 
-  onAdd() {
-    this.add.emit(true);
+  ativosTotalValues: IAtivoTotalValues = this.ativosTotalValueInitialValue;
+
+  ngOnInit(): void {
+    this.sumValueTotalAtivos();
   }
 
-  onEdit(ativo: IAtivo) {
-    this.edit.emit(ativo);
+  onSelect(){
+    this.eventSelectedYear.emit(this.yearSelected);
   }
+
+  sumValueTotalAtivos(){
+
+    this.ativosTotalValues = this.ativos.reduce(
+        (accumulator: any, currentItem: IAtivo) =>{
+
+      accumulator.lucroVendaTotal += currentItem.lucroVenda;
+      accumulator.valorDividendoTotal += currentItem.valorDividendo;
+
+      return accumulator;
+    },  this.ativosTotalValueInitialValue);
+
+    this.ativosTotalValues.totalLucroVendaDivendendo = (
+      this.ativosTotalValues.lucroVendaTotal
+        + this.ativosTotalValues.valorDividendoTotal
+    );
+
+  }
+
 }
