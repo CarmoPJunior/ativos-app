@@ -10,23 +10,11 @@
       [ativos]="ativos">
     </app-ativos-chart-bar>
 
-    <mat-card class="example-card">
-      <mat-card-content>
-        <mat-progress-spinner diameter=50 mode="indeterminate" color="accent">
-        </mat-progress-spinner>
-      </mat-card-content>
-    </mat-card>
-
   </div>
 
   <ng-template #loading>
 
-    <div class="overlay">
-      <div class="loading-spinner-container">
-        <mat-progress-spinner diameter=150 mode="indeterminate" color="accent">
-        </mat-progress-spinner>
-      </div>
-    </div>
+    <app-load-spinner-card></app-load-spinner-card>
 
   </ng-template>
 </div>

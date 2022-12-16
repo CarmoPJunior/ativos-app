@@ -59,6 +59,9 @@
 > ng g c components/footer
 > ng g c components/header
 > ng g c components/menu
+> ng g c components/error-dialog --module shared
+> ng g c components/load-spinner --module shared
+> ng g c components/load-spinner-card --module shared
 
 > ng g m pages/home --route home --module app.module
 > ng g m pages/dividendos --route dividendos --module app.module
@@ -88,7 +91,6 @@
 
 > ng g m shared --routing
 > ng g m shared/app-material
-> ng g c shared/components/error-dialog --module shared
 > ng g pipe shared/pipes/mes-abreviado --module shared
 
 
@@ -108,3 +110,14 @@
 > > `ng generate component component-name` 
 > to generate a new component. You can also use 
 > > `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+
+
+## Pendências
+- ajustar a list dividendos
+- ajustar a list vendas
+- ajustar layout do rodape da list
+- criar componente card generico
+- criar componente list generico
+- ajustar arquivo do docker para o back e front 
+- ajustar nome da api
+- verificar como enviar uma lista de parâmetros pela requisição get
