@@ -16,7 +16,7 @@ export class AtivosService {
 
   getAtivosByYear(ano: number) {
 
-    let urlApi = `${this.API}/lucro/ano/`;
+    let urlApi = `${this.API}/lucro/ano/88`;
 
     if(ano)
       urlApi = `${this.API}/lucro/ano/?ano=${ano}`;

@@ -1,0 +1,17 @@
+.mat-dialog-title{
+  margin-top: 0px;
+}
+.error-dialog-container{
+  padding: 20px;
+  min-width: 100px;
+}
+.mat-dialog-actions{
+  justify-content: center;
+  display: flex;
+  position: relative;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+  align-items: center;
+  min-height: 52px;
+  padding: 8px;
+}
