@@ -74,7 +74,10 @@
   background-color: var(--white);
   z-index: 100;
 }
-.card table thead td, .card table tfoot td{
+.card table thead th, .card table tr td{
+  padding: 10px;
+}
+.card table thead th, .card table tfoot td{
   font-weight: 700;
 }
 .card table tr{
@@ -87,9 +90,6 @@
 .card table tbody tr:hover{
   background: var(--blue);
   color: var(--white);
-}
-.card table tr td{
-  padding: 10px;
 }
 .card table tbody td{
   font-weight: 500;

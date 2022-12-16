@@ -26,6 +26,14 @@ export class VendasChartBarComponent implements OnInit{
       legend: {
         display: true,
       },
+      title: {
+        display: true,
+        text: 'Lucro Ativos Vendidos',
+        padding: {
+            top: 2,
+            bottom: 2
+        }
+      }
     }
   };
   public barChartType: ChartType = 'bar';

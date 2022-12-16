@@ -19,41 +19,57 @@
 
   <div class="card-body">
 
-    <table>
+    <table aria-label="Tabela Lucro Ativos Vendidos">
       <thead>
         <tr>
-          <td>Icone</td>
-          <td>Mês/Ano</td>
-          <td>Lucro</td>
-          <td>Status</td>
+          <th class="text-align-center">Mês/Ano</th>
+          <th class="text-align-right">Lucro</th>
+          <th class="text-align-center">Status</th>
         </tr>
       </thead>
 
       <tbody *ngIf="vendas.length > 0; else noContent" >
 
           <tr *ngFor="let venda of vendas" >
-            <td class="icone">
-              <ion-icon name="cash-outline"></ion-icon>
+            <td class="text-align-center">
+              {{ venda.mes | mesAbreviado}}/{{venda.ano}}
             </td>
-            <td>{{ venda.mes | mesAbreviado}}/{{venda.ano}}</td>
-            <td>{{ venda.lucro | currency }}</td>
-            <td><span class="status delivered">Positivo</span></td>
+            <td class="text-align-right">
+              {{ venda.lucro | currency }}
+              <ion-icon  name="{{ venda.lucro < 0 ? 'trending-down' : 'trending-up' }}"
+                        [ngClass]="venda.lucro < 0 ? 'text-alert' : 'text-success'">
+              </ion-icon>
+            </td>
+            <td class="text-align-center">
+              <span class="status "
+                    [ngClass]="venda.lucro < 0 ? 'alert' : 'success'">
+
+                {{ venda.lucro < 0 ? 'Negativo' : 'Positivo' }}
+              </span>
+            </td>
           </tr>
 
       </tbody>
+
+      <tfoot>
+        <tr>
+          <td>Total:</td>
+          <td class="text-align-right">
+            {{totalValueVendas | currency:"BRL" }}
+          </td>
+          <td></td>
+        </tr>
+      </tfoot>
+
     </table>
 
-  </div>
-
-  <div class="card-footer">
-    <h2>Total: {{totalValueVendas | currency:"BRL" }}</h2>
   </div>
 
 </div>
 
 <ng-template #noContent>
   <tr>
-    <td colspan="11">Nenhum conteúdo foi encontrado!<td>
+    <td colspan="3">Nenhum conteúdo foi encontrado!<td>
   </tr>
 </ng-template>
 

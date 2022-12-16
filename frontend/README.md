@@ -114,9 +114,8 @@
 
 ## Pendências
 - ajustar a list vendas
-- ajustar layout do rodape da list
-- criar componente card generico
-- criar componente list generico
+- criar componente card genérico
+- criar componente list genérico
 - ajustar arquivo do docker para o back e front 
 - ajustar nome da api
 - verificar como enviar uma lista de parâmetros pela requisição get
