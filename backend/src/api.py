@@ -1,15 +1,12 @@
-from fastapi import FastAPI, Query
+from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from dotenv import load_dotenv
+load_dotenv()
 
-from src.config.api_docs_config import ApiConfig
+from src.config.api_config import ApiConfig
 from src.routes.dividendos_routes import dividendos_routes
 from src.routes.ativos_routes import ativos_routes
 from src.routes.vendas_routes import vendas_routes
-
-origins = [
-    "http://localhost",
-    "http://localhost:4200",
-]
 
 ROOT_PATH = ApiConfig.ROOT_PATH.value
 
@@ -28,27 +25,22 @@ api = FastAPI(
 
 api.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,
+    allow_origins=ApiConfig.CORS_ALLOW_ORIGINS.value,
     allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
+    allow_methods=ApiConfig.CORS_ALLOW_METHODS.value,
+    allow_headers=ApiConfig.CORS_ALLOW_ORIGINS.value,
 )
 
 
 @api.get(ROOT_PATH, tags=["Root"])
 def root():
     """Api Ativos"""
-    return {"Description": "Api Ativos"}
+    return {
+        "Status": "Ok",
+        "Descrição": "Api Ativos"
+    }
 
 
 api.include_router(dividendos_routes, tags=["Ativos Dividendos"], prefix=ROOT_PATH)
 api.include_router(vendas_routes, tags=["Ativos Lucro Vendas"], prefix=ROOT_PATH)
 api.include_router(ativos_routes, tags=["Ativos Lucro Geral"], prefix=ROOT_PATH)
-
-# @api.get("/items/")
-# async def read_items(q: list[str] | None = Query(default=["foo", "bar"])):
-#     query_items = {"q": q}
-#     for item in q:
-#         print(item)
-
-#     return query_items

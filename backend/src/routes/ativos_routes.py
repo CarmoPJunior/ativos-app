@@ -1,4 +1,4 @@
-from fastapi import APIRouter
+from fastapi import APIRouter, Query
 from typing import List, Optional
 
 from src.dto.ativos_lucro_dto import AtivosLucroOut
@@ -8,12 +8,8 @@ ativos_routes = APIRouter(prefix="/ativos")
 
 
 @ativos_routes.get("/lucro/ano/", response_model=List[AtivosLucroOut])
-async def listaLucroAtivosPorAno(ano: Optional[int] = None):
+async def listaLucroAtivosPorAno(anos: list[int] | None = Query(default=[])):
     """Lista os lucros obtidos com os ativos por ano"""
-
-    anos = []
-    if ano:
-        anos.append(ano)
 
     # Convert Pandas DataFrame To dict
     dfLucrosAtivosAno = obtemLucrosAtivosPorAno(anos).to_dict('records')

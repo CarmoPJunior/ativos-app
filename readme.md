@@ -69,7 +69,7 @@
 
 ou
 
-> uvicorn src.api:api --reload
+> uvicorn src.api:api --port=8080 --reload
 
 #### Executar o comando abaixo para usar o streamlit
 
@@ -116,14 +116,20 @@ ou
 - #### Dividendos por ano
 
     > <http://localhost:8080/api/v1/dividendos/ano/>
+        ou
+    > <http://localhost:8080/api/v1/dividendos/ano/?anos=2022>
 
 - #### Lucro vendas por ano
 
     > <http://localhost:8080/api/v1/vendas/lucro/ano/>
+        ou
+    > <http://localhost:8080/api/v1/vendas/lucro/ano/?anos=2022>
 
 - #### lucroativos por ano
 
     > <http://localhost:8080/api/v1/ativos/lucro/ano/>
+        ou
+    > <http://localhost:8080/api/v1/ativos/lucro/ano/?anos=2022>
 
 <br />
 
@@ -179,5 +185,3 @@ ou
 > ng2-charts: <https://valor-software.com/ng2-charts>
 > Typescriptlang: <https://www.typescriptlang.org/pt/>
 > <https://www.ideas2it.com/blogs/angular-development-best-practices/>
-
-
