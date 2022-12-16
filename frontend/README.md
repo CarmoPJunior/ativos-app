@@ -97,6 +97,7 @@
 # REFERÊNCIAS
 
 > Angular Docs: <https://angular.io/docs>
+> Material Theme Docs: <https://material.angular.io/guide/theming>
 > ng2-charts: <https://valor-software.com/ng2-charts>
 > Typescriptlang: <https://www.typescriptlang.org/pt/>
 > <https://www.ideas2it.com/blogs/angular-development-best-practices/>

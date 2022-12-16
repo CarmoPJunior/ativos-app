@@ -9,3 +9,18 @@
   top: 50px;
   overflow-y: scroll;
 }
+// .loading-spinner-container {
+//   z-index:    9999;
+// }
+.overlay{
+  height:100vh;
+  width:100%;
+  background-color:rgba(0, 0, 0, 0.286);
+  z-index:    9999;
+  top:        0;
+  left:       0;
+  position:   fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

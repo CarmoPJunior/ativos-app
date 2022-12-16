@@ -1,23 +1,32 @@
 <div class="details">
 
-  <app-ativos-list *ngIf="ativos$ | async as ativos; else loading"
-    (eventSelectedYear)="receiverYearSelected($event)"
+  <app-ativos-list *ngIf="ativos$ | async as ativos; else loading" (eventSelectedYear)="receiverYearSelected($event)"
     [ativos]="ativos" [yearSelected]="yearSelected">
   </app-ativos-list>
 
   <div>
 
-    <app-ativos-chart-bar
-      *ngIf="ativos$ | async as ativos; else loading"
-      [yearSelected]="yearSelected"
+    <app-ativos-chart-bar *ngIf="ativos$ | async as ativos; else loading" [yearSelected]="yearSelected"
       [ativos]="ativos">
-    </app-ativos-chart-bar >
+    </app-ativos-chart-bar>
+
+    <mat-card class="example-card">
+      <mat-card-content>
+        <mat-progress-spinner diameter=50 mode="indeterminate" color="accent">
+        </mat-progress-spinner>
+      </mat-card-content>
+    </mat-card>
 
   </div>
 
   <ng-template #loading>
-    <div class="loading-spinner">
-      <mat-spinner></mat-spinner>
+
+    <div class="overlay">
+      <div class="loading-spinner-container">
+        <mat-progress-spinner diameter=150 mode="indeterminate" color="accent">
+        </mat-progress-spinner>
+      </div>
     </div>
+
   </ng-template>
 </div>
