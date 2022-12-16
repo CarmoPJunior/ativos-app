@@ -47,7 +47,8 @@
           <td class="text-align-right"
               [ngClass]="{'text-alert': ativo.totalLucroVendaDivendendo < 0}">
             {{ ativo.totalLucroVendaDivendendo | currency }}
-            <ion-icon name="arrow-up"
+
+            <ion-icon  name="{{ ativo.totalLucroVendaDivendendo < 0 ? 'trending-down' : 'trending-up' }}"
                       [ngClass]="ativo.totalLucroVendaDivendendo < 0 ? 'text-alert' : 'text-success'">
             </ion-icon>
           </td>

@@ -1,1 +1,16 @@
-<p>ativos-chart-bar works!</p>
+<div class="card">
+
+  <div class="cardHeader">
+    <h2>Ano Selecionado: {{yearSelected == 0 ? 'Todos' :  yearSelected }}</h2>
+  </div>
+
+  <div class="chart-container">
+    <canvas baseChart
+      [data]="barChartData"
+      [options]="barChartOptions"
+      [type]="barChartType">
+    </canvas>
+  </div>
+
+</div>
+
