@@ -55,19 +55,11 @@
 }
 .card-body{
   overflow-y: scroll;
-  // padding: 0.1rem 0;
   height: 370px;
 }
 .card-footer{
   padding: 0.8rem 0 0.1rem;
   box-shadow: rgba(17, 17, 26, 0.5) 0 -5px 5px -5px;
-}
-.card-footer h2{
-  font-weight: 700;
-  color: var(--blue);
-  margin-top: 0px;
-  font-size: 1.4rem;
-  padding-left: 1rem;
 }
 .card table{
   width: 100%;
@@ -99,12 +91,22 @@
 .card table tr td{
   padding: 10px;
 }
-.card table tr td:last-child{
-  text-align: end;
+.card table tbody td{
+  font-weight: 500;
 }
-.card table tr td:nth-child(2){
-  text-align: end;
+.card table tfoot {
+  position: sticky;
+  position: -webkit-sticky;
+  bottom: 0;
+  transition: box-shadow .25s;
+  padding: 0.8rem 0 0.1rem;
+  box-shadow: rgba(17, 17, 26, 0.5) 0 -5px 5px -5px;
+  background-color: var(--white);
+  z-index: 100;
 }
-.card table tr td:nth-child(3){
-  text-align: center;
+.card table tfoot tr{
+  font-weight: 700;
+  color: var(--blue);
+  margin-top: 0px;
+  font-size: 1.1rem;
 }

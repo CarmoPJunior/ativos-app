@@ -113,7 +113,6 @@
 
 
 ## Pendências
-- ajustar a list dividendos
 - ajustar a list vendas
 - ajustar layout do rodape da list
 - criar componente card generico

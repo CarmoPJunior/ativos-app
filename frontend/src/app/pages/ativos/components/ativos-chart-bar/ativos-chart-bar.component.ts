@@ -33,7 +33,7 @@ export class AtivosChartBarComponent implements OnInit{
             top: 2,
             bottom: 2
         }
-    }
+      }
     }
   };
   public barChartType: ChartType = 'bar';

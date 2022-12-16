@@ -26,6 +26,14 @@ export class DividendosChartBarComponent implements OnInit{
       legend: {
         display: true,
       },
+      title: {
+        display: true,
+        text: 'Dividendos Recebidos',
+        padding: {
+            top: 2,
+            bottom: 2
+        }
+      }
     }
   };
   public barChartType: ChartType = 'bar';

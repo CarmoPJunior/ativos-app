@@ -7,11 +7,11 @@
 
       <label for="selectAno">Escolha um Ano:</label>
 
-      <select  [(ngModel)]="yearSelected" (change)="onSelect()">
-          <option value="0">Selecione um item</option>
-          <option value="2022">2022</option>
-          <option value="2021">2021</option>
-          <option value="2020">2020</option>
+      <select [(ngModel)]="yearSelected" (change)="onSelect()">
+        <option value="0">Selecione um item</option>
+        <option value="2022">2022</option>
+        <option value="2021">2021</option>
+        <option value="2020">2020</option>
       </select>
 
     </div>
@@ -22,37 +22,51 @@
     <table>
       <thead>
         <tr>
-          <td>Icone</td>
-          <td>Mês/Ano</td>
-          <td>Valor</td>
-          <td>Status</td>
+          <td class="text-align-center">Mês/Ano</td>
+          <td class="text-align-right">Valor</td>
+          <td class="text-align-center">Status</td>
         </tr>
       </thead>
 
-      <tbody *ngIf="dividendos.length > 0; else noContent" >
+      <tbody *ngIf="dividendos.length > 0; else noContent">
 
-          <tr *ngFor="let dividendo of dividendos" >
-            <td class="icone">
-              <ion-icon name="cash-outline"></ion-icon>
-            </td>
-            <td>{{ dividendo.mes | mesAbreviado}}/{{dividendo.ano}}</td>
-            <td>{{ dividendo.valor | currency }}</td>
-            <td><span class="status delivered">Positivo</span></td>
-          </tr>
+        <tr *ngFor="let dividendo of dividendos">
+          <td class="text-align-center">
+            {{ dividendo.mes | mesAbreviado}}/{{dividendo.ano}}
+          </td>
+          <td class="text-align-right" [ngClass]="{'text-alert': dividendo.valor < 0}">
+            {{ dividendo.valor | currency }}
+            <ion-icon name="{{ dividendo.valor < 0 ? 'trending-down' : 'trending-up' }}"
+              [ngClass]="dividendo.valor < 0 ? 'text-alert' : 'text-success'">
+            </ion-icon>
+          </td>
+          <td class="text-align-center">
+            <span class="status " [ngClass]="dividendo.valor < 0 ? 'alert' : 'success'">
+              {{ dividendo.valor < 0 ? 'Negativo' : 'Positivo' }} </span>
+          </td>
+        </tr>
 
       </tbody>
+
+      <tfoot class="card-footer">
+        <tr>
+          <td>Total:</td>
+          <td class="text-align-right">
+            {{totalValueDividendos | currency:"BRL" }}
+          </td>
+          <td></td>
+        </tr>
+      </tfoot>
+
     </table>
 
-  </div>
-
-  <div class="card-footer">
-    <h2>Total: {{totalValueDividendos | currency:"BRL" }}</h2>
   </div>
 
 </div>
 
 <ng-template #noContent>
   <tr>
-    <td colspan="11">Nenhum conteúdo foi encontrado!<td>
+    <td colspan="3">Nenhum conteúdo foi encontrado!
+    <td>
   </tr>
 </ng-template>
