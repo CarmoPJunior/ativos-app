@@ -1,46 +1,9 @@
 <div class="container">
 
-  <div class="navigation">
-    <ul>
-      <li>
-        <a routerLink="/">
-          <span class="icon">
-            <ion-icon name="logo-firefox"></ion-icon>
-          </span>
-          <span class="title">Dashboard</span>
-        </a>
-      </li>
-      <li>
-        <a routerLink="/">
-          <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
-          <span class="title">Home</span>
-        </a>
-      </li>
-      <li>
-        <a routerLink="/dividendos">
-          <span class="icon"><ion-icon name="clipboard-outline"></ion-icon></span>
-          <span class="title">Dividendos</span>
-        </a>
-      </li>
-      <li>
-        <a routerLink="/vendas" alt="Vendas">
-          <span class="icon">
-            <ion-icon name="cash-outline" aria-label="Vendas"></ion-icon>
-          </span>
-          <span class="title">Vendas</span>
+  <!-- Menu -->
+  <app-menu></app-menu>
 
-        </a>
-      </li>
-      <li>
-        <a routerLink="/ativos">
-          <span class="icon"><ion-icon name="bookmarks-outline"></ion-icon></span>
-          <span class="title">Ativos</span>
-        </a>
-      </li>
-    </ul>
-  </div>
-
-  <!-- main -->
+  <!-- Main -->
   <div id="main" class="main">
     <!-- Toolbar -->
     <app-header></app-header>

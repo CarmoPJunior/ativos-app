@@ -125,3 +125,8 @@ body{
 .text-inprogress{
   color: var(--text-inprogress)
 }
+
+// Usado para desativar a label padrão do ion-icon
+ion-icon {
+  pointer-events: none;
+}

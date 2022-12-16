@@ -1,1 +1,12 @@
-<p>menu works!</p>
+<div class="navigation">
+  <ul>
+    <li *ngFor="let menuItem of menuItens">
+      <a routerLink="{{ menuItem.routerLink }}">
+        <span class="icon" title="{{ menuItem.title }}">
+          <ion-icon name="{{ menuItem.iconName }}" ></ion-icon>
+        </span>
+        <span class="title">{{ menuItem.title }}</span>
+      </a>
+    </li>
+  </ul>
+</div>
