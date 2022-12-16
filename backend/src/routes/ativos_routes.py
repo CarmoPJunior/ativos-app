@@ -4,10 +4,10 @@ from typing import List, Optional
 from src.dto.ativos_lucro_dto import AtivosLucroOut
 from src.service.lucro_ativos_service import obtemLucrosAtivosPorAno
 
-ativos_routes = APIRouter()
+ativos_routes = APIRouter(prefix="/ativos")
 
 
-@ativos_routes.get("/ativos/lucro/ano/", response_model=List[AtivosLucroOut])
+@ativos_routes.get("/lucro/ano/", response_model=List[AtivosLucroOut])
 async def listaLucroAtivosPorAno(ano: Optional[int] = None):
     """Lista os lucros obtidos com os ativos por ano"""
 

@@ -10,5 +10,6 @@ if __name__ == "__main__":
         "src.api:api",
         host=os.environ['API_HOST'],
         port=int(os.environ['API_PORT']),
-        reload=os.environ['UVICORN_RELOAD']
+        reload=os.environ['UVICORN_RELOAD'],
+        # root_path='/api/v1'
     )

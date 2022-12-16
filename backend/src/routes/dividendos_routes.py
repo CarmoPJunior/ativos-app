@@ -5,10 +5,10 @@ from src.dto.dividendos_dto import DividendosOut
 from src.service.dividendos_service import (agrupaDividendosPorMes,
                                                 obtemDividendosPorAno)
 
-dividendos_routes = APIRouter()
+dividendos_routes = APIRouter(prefix="/dividendos")
 
 
-@dividendos_routes.get("/dividendos/mes", response_model=List[DividendosOut])
+@dividendos_routes.get("/mes", response_model=List[DividendosOut])
 async def listaDividendosPorMes(ano: Optional[int] = None):
     """Lista os dividendos recebidos por mês"""
     # Convert Pandas DataFrame To JSON Using orient = 'records'
@@ -20,7 +20,7 @@ async def listaDividendosPorMes(ano: Optional[int] = None):
 
     return dividendos
 
-@dividendos_routes.get("/dividendos/ano/", response_model=List[DividendosOut])
+@dividendos_routes.get("/ano/", response_model=List[DividendosOut])
 async def listaDividendosPorAno(ano: Optional[int] = None):
     # items: List[int] = Query(None, alias="items[]")
     """Lista os dividendos recebidos com os ativos por ano"""

@@ -101,11 +101,11 @@ ou
 
 ### Api Root
 
-> <http://localhost:8080>
+> <http://localhost:8080/api/v1/>
 
 ### Api Docs
 
-> <http://localhost:8080/docs>
+> <http://localhost:8080/api/v1/documentation>
 
 ### Stremlit
 
@@ -115,15 +115,15 @@ ou
 
 - #### Dividendos por ano
 
-    > <http://localhost:8080/dividendos/ano/>
+    > <http://localhost:8080/api/v1/dividendos/ano/>
 
 - #### Lucro vendas por ano
 
-    > <http://localhost:8080/vendas/lucro/ano/>
+    > <http://localhost:8080/api/v1/vendas/lucro/ano/>
 
 - #### lucroativos por ano
 
-    > <http://localhost:8080/ativos/lucro/ano/>
+    > <http://localhost:8080/api/v1/ativos/lucro/ano/>
 
 <br />
 
@@ -137,7 +137,6 @@ ou
 
 ### Libs instaladas no Backend
 
-> - pip install beautifulsoup4
 > - pip install python-dotenv
 > - pip install pandas
 > - pip install matplotlib
@@ -165,3 +164,20 @@ ou
 
 > docker builder prune -f 
 > docker system df  -->
+
+
+# REFERÊNCIAS
+
+## Backend:
+
+> Fast api: <https://fastapi.tiangolo.com/>
+
+## Frontend:
+
+> Angular Docs: <https://angular.io/docs>
+> Material Theme Docs: <https://material.angular.io/guide/theming>
+> ng2-charts: <https://valor-software.com/ng2-charts>
+> Typescriptlang: <https://www.typescriptlang.org/pt/>
+> <https://www.ideas2it.com/blogs/angular-development-best-practices/>
+
+
