@@ -1,20 +1,21 @@
 <div class="details">
 
-  <app-ativos-list *ngIf="ativos$ | async as ativos; else loading" (eventSelectedYear)="receiverYearSelected($event)"
-    [ativos]="ativos" [yearSelected]="yearSelected">
+  <app-ativos-list *ngIf="ativos$ | async as ativos; else loading"
+    (eventSelectedYear)="receiverYearSelected($event)"
+    [ativos]="ativos"
+    [yearsSelected]="yearsSelected"
+    [selectYearsItems] = "selectYearsItems">
   </app-ativos-list>
 
   <div>
 
-    <app-ativos-chart-bar *ngIf="ativos$ | async as ativos; else loading" [yearSelected]="yearSelected"
+    <app-ativos-chart-bar *ngIf="ativos$ | async as ativos; else loading"
       [ativos]="ativos">
     </app-ativos-chart-bar>
 
   </div>
 
   <ng-template #loading>
-
     <app-load-spinner-card></app-load-spinner-card>
-
   </ng-template>
 </div>

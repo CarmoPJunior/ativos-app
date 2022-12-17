@@ -5,14 +5,13 @@
 
     <div class="cardHeader-rightItem">
 
-      <label for="selectAno">Escolha um Ano:</label>
-
-      <select [(ngModel)]="yearSelected" (change)="onSelect()">
-        <option value="0">Selecione um item</option>
-        <option value="2022">2022</option>
-        <option value="2021">2021</option>
-        <option value="2020">2020</option>
-      </select>
+      <mat-form-field appearance="fill">
+        <mat-label>Ano</mat-label>
+        <mat-select [(ngModel)]="yearsSelected" multiple (ngModelChange)="onSelect()">
+          <mat-option [value]="0">Todos</mat-option>
+          <mat-option *ngFor="let year of selectYearsItems" [value]="year">{{year}}</mat-option>
+        </mat-select>
+      </mat-form-field>
 
     </div>
   </div>
@@ -36,28 +35,23 @@
           <td class="text-align-center">
             {{ ativo.mes | mesAbreviado}}/{{ativo.ano}}
           </td>
-          <td class="text-align-right"
-              [ngClass]="{'text-alert': ativo.lucroVenda < 0}">
+          <td class="text-align-right" [ngClass]="{'text-alert': ativo.lucroVenda < 0}">
             {{ ativo.lucroVenda| currency }}
           </td>
-          <td class="text-align-right"
-              [ngClass]="{'text-alert': ativo.valorDividendo < 0}">
+          <td class="text-align-right" [ngClass]="{'text-alert': ativo.valorDividendo < 0}">
             {{ ativo.valorDividendo| currency }}
           </td>
-          <td class="text-align-right"
-              [ngClass]="{'text-alert': ativo.totalLucroVendaDivendendo < 0}">
+          <td class="text-align-right" [ngClass]="{'text-alert': ativo.totalLucroVendaDivendendo < 0}">
             {{ ativo.totalLucroVendaDivendendo | currency }}
 
-            <ion-icon  name="{{ ativo.totalLucroVendaDivendendo < 0 ? 'trending-down' : 'trending-up' }}"
-                      [ngClass]="ativo.totalLucroVendaDivendendo < 0 ? 'text-alert' : 'text-success'">
+            <ion-icon name="{{ ativo.totalLucroVendaDivendendo < 0 ? 'trending-down' : 'trending-up' }}"
+              [ngClass]="ativo.totalLucroVendaDivendendo < 0 ? 'text-alert' : 'text-success'">
             </ion-icon>
           </td>
           <td class="text-align-center">
-            <span class="status "
-                  [ngClass]="ativo.totalLucroVendaDivendendo < 0 ? 'alert' : 'success'">
+            <span class="status " [ngClass]="ativo.totalLucroVendaDivendendo < 0 ? 'alert' : 'success'">
 
-              {{ ativo.totalLucroVendaDivendendo < 0 ? 'Negativo' : 'Positivo' }}
-            </span>
+              {{ ativo.totalLucroVendaDivendendo < 0 ? 'Negativo' : 'Positivo' }} </span>
           </td>
         </tr>
 

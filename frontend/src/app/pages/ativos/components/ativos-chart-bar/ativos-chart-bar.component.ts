@@ -12,7 +12,6 @@ import {MesPorExtensoConstants} from '../../../../shared/constants/mesPorExtenso
 })
 export class AtivosChartBarComponent implements OnInit{
 
-  @Input() yearSelected!: number;
   @Input() ativos: IAtivo[] = [];
   @ViewChild(BaseChartDirective) chart: BaseChartDirective | undefined;
 
@@ -27,7 +26,7 @@ export class AtivosChartBarComponent implements OnInit{
         display: true,
       },
       title: {
-        display: true,
+        display: false,
         text: 'Lucro Total Ativos',
         padding: {
             top: 2,

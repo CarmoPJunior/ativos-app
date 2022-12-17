@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-
+import {FormControl} from '@angular/forms';
 import { IAtivo, IAtivoTotalValues } from '../../../../shared/models/ativo.model';
 
 @Component({
@@ -15,18 +15,24 @@ export class AtivosListComponent implements OnInit {
       "totalLucroVendaDivendendo":0
   }
 
-  @Input() yearSelected!:number;
+  @Input() yearsSelected!: number[] ;
+  @Input() selectYearsItems!: number[];
   @Input() ativos: IAtivo[] = [];
   @Output() eventSelectedYear = new EventEmitter();
 
   ativosTotalValues: IAtivoTotalValues = this.ativosTotalValueInitialValue;
 
-  ngOnInit(): void {
+  ngOnInit(): void {  
     this.sumValueTotalAtivos();
   }
 
   onSelect(){
-    this.eventSelectedYear.emit(this.yearSelected);
+
+    if(this.yearsSelected.includes(0)){
+      this.yearsSelected = [];
+    }
+
+    this.eventSelectedYear.emit(this.yearsSelected);
   }
 
   sumValueTotalAtivos(){

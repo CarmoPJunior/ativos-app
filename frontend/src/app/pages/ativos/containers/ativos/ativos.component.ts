@@ -15,24 +15,26 @@ import { ErrorDialogComponent } from '../../../../components/error-dialog/error-
 export class AtivosComponent implements OnInit {
 
   ativos$!: Observable<IAtivo[]>;
-  yearSelected: number;
+  yearsSelected: number[] ;
+  selectYearsItems: number[] = [2020, 2021, 2022];
 
   constructor(  private ativosService: AtivosService,
                 public dialog: MatDialog,
   ) {
-    this.yearSelected = 0;
+    this.yearsSelected = [];
   }
 
-  receiverYearSelected(year: number) {
-    this.yearSelected = year;
+  receiverYearSelected(years: number[]) {
+    this.yearsSelected = years;
     this.getAtivos()
   }
 
   getAtivos(){
 
-    this.ativos$ = this.ativosService.getAtivosByYear(this.yearSelected)
+    this.ativos$ = this.ativosService.getAtivosByYear(this.yearsSelected)
     .pipe(
       catchError(error => {
+        console.log(error)
         this.onError('Erro ao carregar ativos!.');
         return of([])
       })

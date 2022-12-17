@@ -11,15 +11,16 @@ export class AtivosService {
 
   private readonly API = `${environment.config.apiUrl}/ativos`;
 
-  constructor(private httpClient: HttpClient) {
-  }
+  constructor(private httpClient: HttpClient) {}
 
-  getAtivosByYear(ano: number) {
+  getAtivosByYear(anos: number[]) {
 
     let urlApi = `${this.API}/lucro/ano/`;
 
-    if(ano)
-      urlApi = `${this.API}/lucro/ano/?ano=${ano}`;
+    if(anos && anos.length >0){
+      let queryParameters = anos.join("&anos=");
+      urlApi = `${this.API}/lucro/ano/?anos=${queryParameters}`;
+    }
 
     return this.httpClient
       .get<IAtivo[]>(urlApi)

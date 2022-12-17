@@ -13,7 +13,7 @@ export class MenuComponent {
     {routerLink: '/', iconName: 'home-outline', title: 'Home'},
     {routerLink: '/dividendos', iconName: 'clipboard-outline', title: 'Dividendos'},
     {routerLink: '/vendas', iconName: 'cash-outline', title: 'Vendas'},
-    {routerLink: '/ativos', iconName: 'bookmarks-outline', title: 'Ativos'},
+    {routerLink: '/ativos', iconName: 'document-outline', title: 'Ativos'},
   ];
 
 }
