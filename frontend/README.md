@@ -113,6 +113,7 @@
 
 
 ## Pendências
+- adicionar fonte a pasta assets
 - verificar como colocar variavel dinâmica sem precisar copiar arquivo env-sample.js
 - verificar como colocar variável compartilhada no docker compose
 - criar componente card genérico
