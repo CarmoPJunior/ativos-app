@@ -143,14 +143,13 @@ ou
 
 ### Libs instaladas no Backend
 
-> - pip install python-dotenv
-> - pip install pandas
-> - pip install matplotlib
-> - pip install openpyxl
 > - pip install fastapi
 > - pip install uvicorn
-> - pip install streamlit-aggrid
+> - pip install python-dotenv
+> - pip install pandas
+> - pip install openpyxl
 > - pip install streamlit
+> - pip install streamlit-aggrid
 
 ### Gerar o arquivo requeriments do projeto Backend
 
@@ -169,7 +168,12 @@ ou
 <!-- ### Comandos Docker
 
 > docker builder prune -f 
-> docker system df  -->
+> docker system df  
+> docker-compose build --no-cache
+
+-->
+<!-- pasta do nginx onde fica os arquivos do app 
+>/usr/share/nginx/html/ -->
 
 
 # REFERÊNCIAS

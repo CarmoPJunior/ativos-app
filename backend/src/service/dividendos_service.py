@@ -62,7 +62,6 @@ def obtemDividendosPorAno(anos:List[int]):
 if __name__ == "__main__":
     print("chamado direto")
     df_dividendos_por_mes = agrupaDividendosPorMes()
-    # df_dividendos_por_ano = obtem_dividendos_por_ano(2022)
     print(df_dividendos_por_mes)
 else:
     print("chamado por import")
