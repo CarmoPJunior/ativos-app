@@ -6,9 +6,10 @@ FROM node:$NODE_VERSION
 ARG APP_NAME
 ARG APP_PATH
 
-# Instala o NGINX
+# Instala o NGINX e o gettext para usar o comando(envsubst)
 RUN apk update && \
-    apk add --no-cache nginx 
+    apk add --no-cache nginx && \
+    apk add --no-cache gettext
 
 # muda para o diretório de trabalho
 WORKDIR $APP_PATH
@@ -38,5 +39,5 @@ RUN cp -r $APP_PATH/dist/frontend/ /usr/share/nginx/html
 ## Remove os arquivos 
 RUN rm -rf $APP_PATH/node_modules/
 
-## Executa o nginx
-CMD ["nginx", "-g", "daemon off;"]
+## Executa o nginx e altera as informações do env.js com os valores do environment variables
+CMD ["/bin/sh",  "-c",  "envsubst < /usr/share/nginx/html/assets/env.sample.js > /usr/share/nginx/html/assets/env.js && exec nginx -g 'daemon off;'"]

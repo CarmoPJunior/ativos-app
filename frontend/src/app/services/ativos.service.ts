@@ -11,10 +11,12 @@ export class AtivosService {
 
   private readonly API = `${environment.config.apiUrl}/ativos`;
 
+
+
   constructor(private httpClient: HttpClient) {}
 
   getAtivosByYear(anos: number[]) {
-
+    
     let urlApi = `${this.API}/lucro/ano/`;
 
     if(anos && anos.length >0){

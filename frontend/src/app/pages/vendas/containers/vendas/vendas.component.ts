@@ -49,5 +49,6 @@ export class VendasComponent {
   ngOnInit(): void {
     this.getVendas();
   }
+  
 
 }

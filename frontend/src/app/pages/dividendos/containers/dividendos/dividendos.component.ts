@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { catchError} from 'rxjs/operators';
 import { MatDialog as MatDialog } from '@angular/material/dialog';
@@ -51,4 +51,7 @@ export class DividendosComponent implements OnInit {
   ngOnInit(): void {
     this.getDividendos();
   }
+
+
+
 }
