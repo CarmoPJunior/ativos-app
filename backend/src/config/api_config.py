@@ -6,10 +6,7 @@ class ApiConfig(Enum):
 
     ROOT_PATH = "/api/v1"
     URL_DOCS_API = f'{ROOT_PATH}/documentation'
-    CORS_ALLOW_ORIGINS = [
-        "http://localhost",
-        "http://localhost:4200",
-    ]
+    CORS_ALLOW_ORIGINS = ["*"]
     CORS_ALLOW_METHODS = ["*"]
     CORS_ALLOW_HEADERS = ["*"]
     DESCRIPTION = """

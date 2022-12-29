@@ -113,20 +113,10 @@
 
 
 ## Pendências
-- ajustar arquivo do docker para o back e front 
-- verificar como colocar variavel dinâmica sem orecisar copiar arquivo env-sample.js
+- verificar como colocar variavel dinâmica sem precisar copiar arquivo env-sample.js
 - verificar como colocar variável compartilhada no docker compose
 - criar componente card genérico
 - criar componente list genérico
 - criar componete status label genérico
 - implementar order by na lista
-
-
---wp--preset--color--pale-pink: #f78da7;
---wp--preset--color--vivid-red: #cf2e2e;
---wp--preset--color--pale-cyan-blue: #8ed1fc;
---wp--preset--color--vivid-cyan-blue: #0693e3;
-
-color: #dd222e;
-background-color: #ffeae5;
-color: #00875a;
+- criar docker file com stages

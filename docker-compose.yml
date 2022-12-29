@@ -32,10 +32,9 @@ services:
       # env_file: .env
       restart: on-failure
       ports:
-        - "80:80"
+        - "8080:80"
       environment:
-        - API_HOST=ativos-app-backend
-        - API_PORT=8282
+        - API_URL=http://localhost:8282/api/v1
       depends_on:
         - ativos-app-backend
       deploy:
